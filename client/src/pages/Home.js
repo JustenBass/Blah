@@ -13,12 +13,17 @@ export default function Home() {
                 <h1>TRENDING NEWS...</h1>
                 <br/>
 
-                {trendingBlogs.map((blog) => (
-                    <Blogs
-                    key={blog.id}
-                    blog={blog}
-                    />
-                ))}
+                <center>
+                <div className='blog-image-scroll'>
+                    {trendingBlogs.map((blog) => (
+                        <Blogs
+                        key={blog.id}
+                        blog={blog}
+                        />
+                    ))}
+                </div>
+                </center>
+
             </div>
           )
         } else {
