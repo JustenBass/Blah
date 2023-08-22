@@ -5,7 +5,9 @@ import Navbar from './components/Navbar';
 import Home from './pages/Home';
 import Signup from './pages/Signup';
 import Login from './pages/Login'
+import CurrentBlog from './pages/CurrentBlog';
 import './App.css';
+
 
 function App(props) {
 
@@ -18,6 +20,7 @@ return (
               <Route path="/" element={<Home />}/>
               <Route path="/signup" element={<Signup />}/>
               <Route path="/login" element={<Login />}/>
+              <Route path="/blogs/:id" element={<CurrentBlog />}/>
             </Routes>
             </Router>
         </UserProvider>

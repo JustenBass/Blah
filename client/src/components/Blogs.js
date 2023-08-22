@@ -1,16 +1,22 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 
 export default function Blogs({blog}) {
+  const {id} = useParams()
   return (
-    <div style={{width: 100, display: "table-cell", borderspacing: 10}}>
-      <div className='example'>
-        <img src={blog.image} width="200" height="200"/>
-        <div className='fadedbox'>
-          <div className='title text'>
-            {blog.title}
+    <div className='blogImageParentDiv'>
+       <Link to={`/blogs/${id}`}>
+        <div className='blogImage'>
+          <img src={blog.image} alt="blogImg" width="325" height="285"/>
+          <div className='fadedbox'>
+            <div className='title text'>
+              {blog.title}
+            </div>
           </div>
         </div>
-      </div>
+      </Link>
+
     </div>
   )
 }
