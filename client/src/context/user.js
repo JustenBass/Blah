@@ -4,6 +4,7 @@ const UserContext = React.createContext()
 
 function UserProvider({ children }) {
 const [user, setUser] = useState(null)
+const [blogs, setBlogs] = useState([])
 const [isAuthenticated, setIsAuthenticated] = useState(false)
 console.log("user", user)
 
@@ -14,6 +15,12 @@ useEffect(() => {
         setUser(data)
         data.error ? setIsAuthenticated(false) : setIsAuthenticated(true)
     })
+}, [])
+
+useEffect(() => {
+    fetch('/blogs')
+    .then((r) => r.json())
+    .then((blogs) => setBlogs(blogs))
 }, [])
 
 
@@ -33,7 +40,7 @@ const signup = (user) => {
 }
 
     return(
-        <UserContext.Provider value={{user, login, logout, signup, isAuthenticated}}>
+        <UserContext.Provider value={{user, login, logout, signup, isAuthenticated, blogs}}>
             {children}
         </UserContext.Provider>
     )
