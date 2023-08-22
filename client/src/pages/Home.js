@@ -10,18 +10,20 @@ export default function Home() {
     if (isAuthenticated) {
         return (
             <div>
+                <center>
                 <h1>TRENDING NEWS...</h1>
+                </center>
                 <br/>
 
                 <center>
-                <div className='blog-image-scroll'>
+
                     {trendingBlogs.map((blog) => (
                         <Blogs
                         key={blog.id}
                         blog={blog}
                         />
                     ))}
-                </div>
+            
                 </center>
 
             </div>

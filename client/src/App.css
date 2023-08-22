@@ -37,12 +37,52 @@
   }
 }
 
-.blog-image-scroll{
-  /* margin: 4px, 4px; */
-  /* padding: 4px; */
-  background-color: white;
-  width: 1000px;
-  overflow-x: auto;
-  overflow-y: hidden;
-  white-space: nowrap;
+.example {
+  cursor: pointer;
+  height: 200px;
+  position: relative;
+  overflow: hidden;
+  width: 200px;
+  text-align: center;
+}
+.example .fadedbox {
+  background-color: green;
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: #fff;
+  -webkit-transition: all 300ms ease-out;
+  -moz-transition: all 300ms ease-out;
+  -o-transition: all 300ms ease-out;
+  -ms-transition: all 300ms ease-out;
+  transition: all 300ms ease-out;
+  opacity: 0;
+  width: 200px;
+  height: 200px;
+  padding: 0px 0px;
+}
+.example:hover .fadedbox {
+  opacity: 0.8;
+}
+.example .text {
+  -webkit-transition: all 300ms ease-out;
+  -moz-transition: all 300ms ease-out;
+  -o-transition: all 300ms ease-out;
+  -ms-transition: all 300ms ease-out;
+  transition: all 300ms ease-out;
+  transform: translateY(30px);
+  -webkit-transform: translateY(30px);
+}
+.example .title {
+  font-size: 1.5em;
+  text-transform: uppercase;
+  opacity: 0;
+  transition-delay: 0.2s;
+  transition-duration: 0.3s;
+}
+.example:hover .title,
+.example:focus .title {
+  opacity: 1;
+  transform: translateY(0px);
+  -webkit-transform: translateY(0px);
 }
