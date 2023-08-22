@@ -6,7 +6,6 @@ export default function Home() {
     const { isAuthenticated, blogs } = useContext(UserContext)
 
     const trendingBlogs = blogs.filter((blog) => blog.trending ? true  : null)
-    console.log("trending", trendingBlogs)
     const nonTrendingBlogs = blogs.filter((blog) => !blog.trending ?  true : null)
 
     if (isAuthenticated) {

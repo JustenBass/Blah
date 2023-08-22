@@ -7,7 +7,7 @@ export default function CurrentBlog() {
     const {id} = useParams()
     const { blogs } = useContext(UserContext)
     const [currentBlog, setCurrentBlog] = useState({
-        comments: []
+        users: []
     })
     console.log("current blog", currentBlog)
 
@@ -19,10 +19,10 @@ export default function CurrentBlog() {
     }, [blogs])
 
 
-    const currentBlogComments = currentBlog.comments.map((comments) => (
+    const currentBlogComments = currentBlog.users.map((users) => (
         <BlogComments
-        key={comments.id}
-        comment={comments}
+        key={users.id}
+        user={users}
         />
     ))
 
