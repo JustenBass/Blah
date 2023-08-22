@@ -6,7 +6,7 @@ export default function Blogs({blog}) {
   const {id} = useParams()
   return (
     <div className='blogImageParentDiv'>
-       <Link to={`/blogs/${id}`}>
+       <Link to={`/blogs/${blog.id}`}>
         <div className='blogImage'>
           <img src={blog.image} alt="blogImg" width="325" height="285"/>
           <div className='fadedbox'>
