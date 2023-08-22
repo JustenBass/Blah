@@ -1,4 +1,4 @@
-"Seeding data...💦"
+puts "Seeding data...💦"
 #Users
 user1 = User.create!(username: "JBass6036", password: "$2a$10$HjEUPNJuuQ2Dz3M8jcLykuVtBpdGpoU0BkMt1cQqdqr487J4BbUSu", password_confirmation: "$2a$10$HjEUPNJuuQ2Dz3M8jcLykuVtBpdGpoU0BkMt1cQqdqr487J4BbUSu") #moon
 user2 = User.create!(username: "Zee8080", password: "$2a$10$tTt7w1BePoAHghRNjxAVlu1OIPLomWm1axMl1xqQSeD3xy9OmgoO2", password_confirmation: "$2a$10$tTt7w1BePoAHghRNjxAVlu1OIPLomWm1axMl1xqQSeD3xy9OmgoO2") #sun
@@ -28,4 +28,4 @@ Comment.create!(comment: "Miley Cyrus has come so far since her Disney days. I h
 Comment.create!(comment: "I was content when they ended 'Keeping Up With The Kardashians' but as time went on I did miss seeing them on tv. I was so happy to hear they were coming back on Hulu!", user_id: user4.id, blog_id: blog7.id)
 Comment.create!(comment: "Gurrrlll I would have done the same thing!!!! 🎤", user_id: user4.id, blog_id: blog8.id)
 
-"Done seeding...🌱"
+puts "Done seeding...🌱"
