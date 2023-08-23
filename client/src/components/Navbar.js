@@ -19,10 +19,16 @@ export default function Navbar() {
 
   if(isAuthenticated){
     return (
-      <div className='userNav'>
-        <h1>Hello, {user.username} </h1>
-        <br/>
-        <button onClick={logoutUser}>Logout</button>
+      <div className='navParent'>
+        <div className='nav inline-block-child'>
+          <img className='userAvatar' src={user.avatar} alt="avatar" height="100" width="100"/>
+        </div>
+
+        <div className='nav inline-block-child'>
+          <h1>Hello, {user.username} </h1>
+        </div>
+
+      <button onClick={logoutUser}>Logout</button>
     </div>
     )
   } else {

@@ -28,7 +28,8 @@ export default function CurrentBlog() {
 
 
     return (
-    <div className='backgroundColor'>
+    <div className='currentBlogDiv'>
+        <br/>
         <img className="blogImgPage" src={currentBlog.image} alt="blogImg" width="900" height="850"/>
         <h1 className='appGossipFont'>{currentBlog.title}</h1>
         <article>{currentBlog.blog}</article>

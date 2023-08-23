@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom'
 
 export default function Signup() {
   const [username, setUsername] = useState('')
+  const [avatar, setAvater] = useState('')
   const [password, setPassword] = useState('')
   const [passwordConfirmation, setPasswordConfirmation] = useState('')
   const [errorsList, setErrorsList] = useState([])
@@ -20,6 +21,7 @@ export default function Signup() {
       headers: { 'Content-Type' : 'application/json'},
       body: JSON.stringify({
         username: username,
+        avatar: avatar,
         password: password,
         password_confirmation: passwordConfirmation
       })
@@ -48,6 +50,13 @@ export default function Signup() {
           id="username"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
+        />
+
+        <input
+          type="text"
+          id="avatar"
+          value={avatar}
+          onChange={(e) => setAvater(e.target.value)}
         />
 
         <input

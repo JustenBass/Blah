@@ -41,25 +41,44 @@
   -webkit-filter: grayscale(100%);
   filter: grayscale(100%)
 } */
-.backgroundColor{
+.allBlogsDiv{
   background-color: #fff;
 }
 
-.userNav{
+.currentBlogDiv{
+  background-color: #fff;
+  width: 1000px;
+  margin: auto;
+}
+
+.navParent{
   color: #fff;
   font-family: 'Nova Flat';font-size: 25px;;
+  margin-left: 50%;
+  text-shadow: 5px 5px rgb(0, 0, 0);
 }
+
+.inline-block-child {
+  display: inline-block;
+}
+
 
 .appTrendingFonts{
   font-family: 'Nova Flat';font-size: 75px;;
+  text-shadow: 5px 5px rgba(101, 100, 82, 0.349);
 }
 
 .appGossipFont{
   font-family: 'Nova Flat';font-size: 55px;;
+  text-shadow: 5px 5px rgba(101, 100, 82, 0.349);
 }
 
 .appCommentHeaderFont{
-  font-family: 'Nova Flat';font-size: 20px;;
+  font-family: 'Nova Flat';font-size: 20px;
+}
+
+.appCommentHeaderShadow{
+  text-shadow: 5px 5px yellow;
 }
 
 .blogImageParentDiv{
@@ -78,7 +97,7 @@
   text-align: center;
 }
 .blogImage .fadedbox {
-  background-color: green;
+  background-color: rgb(7, 142, 180);
   position: absolute;
   top: 0;
   left: 0;
@@ -130,8 +149,8 @@
     -webkit-border-radius: 99em;
     -moz-border-radius: 99em;
     border-radius: 99em; */
-    border: 0px solid green;
-    box-shadow: 0 6px 5px green;
+    /* border: 40px solid rgb(177, 26, 137); */
+    box-shadow: 0 6px 5px rgb(230, 9, 138);
 }
 
 .userComment{

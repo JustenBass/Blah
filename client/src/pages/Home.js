@@ -10,7 +10,8 @@ export default function Home() {
 
     if (isAuthenticated) {
         return (
-            <div className='backgroundColor'>
+            <div className='allBlogsDiv'>
+
                 <center>
                 <h1 className='appTrendingFonts'>TRENDING...</h1>
                 </center>
@@ -28,7 +29,7 @@ export default function Home() {
                 <hr/>
 
                 <center>
-                <h1 className='appGossipFont'>GET THE ALL THE GOSSIP 💋</h1>
+                <h1 className='appGossipFont'>GET THE BLAH 💋</h1>
                 </center>
                 <br/>
 
