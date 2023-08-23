@@ -3,16 +3,16 @@ import { UserContext } from '../context/user'
 import Blogs from '../components/Blogs'
 
 export default function Home() {
-    const { isAuthenticated, blogs } = useContext(UserContext)
+    const { isAuthenticated, blogs, unauthorizedBlogs } = useContext(UserContext)
 
     const trendingBlogs = blogs.filter((blog) => blog.trending ? true  : null)
     const nonTrendingBlogs = blogs.filter((blog) => !blog.trending ?  true : null)
 
     if (isAuthenticated) {
         return (
-            <div>
+            <div className='backgroundColor'>
                 <center>
-                <h1>TRENDING...</h1>
+                <h1 className='appTrendingFonts'>TRENDING...</h1>
                 </center>
                 <br/>
 
@@ -28,7 +28,7 @@ export default function Home() {
                 <hr/>
 
                 <center>
-                <h1>GET THE ALL THE GOSSIP 💋</h1>
+                <h1 className='appGossipFont'>GET THE ALL THE GOSSIP 💋</h1>
                 </center>
                 <br/>
 
@@ -43,6 +43,17 @@ export default function Home() {
             </div>
           )
         } else {
-         return(<h3>Please Login or Signup</h3>)
+         return(
+            <div>
+                <center>
+                    {unauthorizedBlogs.map((blog) => (
+                        <Blogs
+                        key={blog.id}
+                        blog={blog}
+                        />
+                    ))}
+                </center>
+            </div>
+         )
     }
 }

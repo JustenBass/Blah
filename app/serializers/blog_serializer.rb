@@ -1,5 +1,7 @@
 class BlogSerializer < ActiveModel::Serializer
-  attributes :id, :image, :title, :description, :trending
-  has_many :users
-  # has_many :comments
+  #included id to be able to find current blog in CurrentBlog component
+  attributes :id, :image, :title, :blog, :trending
+  # has_many :users, serializer: BlogUserSerializer
+  #included has_many comments to iterate through and render current blog comments to the current blog page
+  has_many :comments
 end

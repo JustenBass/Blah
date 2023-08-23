@@ -19,7 +19,7 @@ export default function Navbar() {
 
   if(isAuthenticated){
     return (
-      <div>
+      <div className='userNav'>
         <h1>Hello, {user.username} </h1>
         <br/>
         <button onClick={logoutUser}>Logout</button>

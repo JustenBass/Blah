@@ -3,10 +3,11 @@ import React, { useState, useEffect } from "react";
 const UserContext = React.createContext()
 
 function UserProvider({ children }) {
+    const [isAuthenticated, setIsAuthenticated] = useState(false)
 const [user, setUser] = useState(null)
+const [users, setUsers] = useState([])
 const [blogs, setBlogs] = useState([])
-const [isAuthenticated, setIsAuthenticated] = useState(false)
-console.log("user", user)
+const [unauthorizedBlogs, setUnauthorizedBlogs] = useState([])
 
 useEffect(() => {
     fetch('/me')
@@ -18,10 +19,23 @@ useEffect(() => {
 }, [])
 
 useEffect(() => {
+    fetch('/users')
+    .then((r) => r.json())
+    .then((users) => setUsers(users))
+}, [])
+
+useEffect(() => {
     fetch('/blogs')
     .then((r) => r.json())
     .then((blogs) => setBlogs(blogs))
 }, [])
+
+useEffect(() => {
+    fetch('/unauthorized_blogs')
+    .then((r) => r.json())
+    .then((ub) => setUnauthorizedBlogs(ub))
+}, [])
+
 
 
 const login = (user) => {
@@ -40,7 +54,7 @@ const signup = (user) => {
 }
 
     return(
-        <UserContext.Provider value={{user, login, logout, signup, isAuthenticated, blogs}}>
+        <UserContext.Provider value={{user, users, blogs, unauthorizedBlogs, login, logout, signup, isAuthenticated}}>
             {children}
         </UserContext.Provider>
     )

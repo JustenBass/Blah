@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 2023_08_22_033646) do
   create_table "blogs", force: :cascade do |t|
     t.string "image"
     t.string "title"
-    t.string "description"
+    t.string "blog"
     t.boolean "trending"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(version: 2023_08_22_033646) do
   create_table "users", force: :cascade do |t|
     t.string "username"
     t.string "password_digest"
+    t.string "avatar"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

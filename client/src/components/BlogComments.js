@@ -1,11 +1,26 @@
-import React from 'react'
+import React, { useState, useEffect, useContext } from 'react'
+import { UserContext } from '../context/user'
 
-export default function BlogComments({user}) {
+export default function BlogComments({comment}) {
+const { users } = useContext(UserContext)
+const [userOfComment, setUserOfComment] = useState({})
 
-    console.log("Current User", user)
+useEffect(() => {
+  const selectedUser = users.find((user) => user.id === comment.user_id)
+  if(selectedUser){
+    setUserOfComment(selectedUser)
+  }
+}, [users])
+
+
   return (
-    <div>
-        {user.username}
+    <div className='userComment'>
+      <hr/>
+       <h4>Comments:</h4>
+        <br/>
+        <img className="userAvatar" src={userOfComment.avatar} alt="avatar" width="50" height="50"/>
+        <b>{userOfComment.username}</b> -
+        {comment.comment}
     </div>
   )
 }

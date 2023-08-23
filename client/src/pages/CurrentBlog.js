@@ -7,9 +7,9 @@ export default function CurrentBlog() {
     const {id} = useParams()
     const { blogs } = useContext(UserContext)
     const [currentBlog, setCurrentBlog] = useState({
-        users: []
+        comments: []
     })
-    console.log("current blog", currentBlog)
+
 
     useEffect(() => {
         const selectedBlog = blogs.find(blog => blog.id == id)
@@ -19,24 +19,24 @@ export default function CurrentBlog() {
     }, [blogs])
 
 
-    const currentBlogComments = currentBlog.users.map((users) => (
+    const currentBlogComments = currentBlog.comments.map((comment) => (
         <BlogComments
-        key={users.id}
-        user={users}
+        key={comment.id}
+        comment={comment}
         />
     ))
 
 
     return (
-    <div>
-        <img className="blogImgPage" src={currentBlog.image} alt="blogImg" width="450" height="400"/>
-        <h1>{currentBlog.title}</h1>
-        <article>{currentBlog.description}</article>
+    <div className='backgroundColor'>
+        <img className="blogImgPage" src={currentBlog.image} alt="blogImg" width="900" height="850"/>
+        <h1 className='appGossipFont'>{currentBlog.title}</h1>
+        <article>{currentBlog.blog}</article>
         <br/>
 
-        <h4>Comments:</h4>
-        <hr/>
-        {currentBlogComments}
+        <center>
+            {currentBlogComments}
+        </center>
       </div>
   )
 }

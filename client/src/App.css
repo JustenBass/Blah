@@ -37,6 +37,31 @@
   }
 }
 
+/* .grayImg{
+  -webkit-filter: grayscale(100%);
+  filter: grayscale(100%)
+} */
+.backgroundColor{
+  background-color: #fff;
+}
+
+.userNav{
+  color: #fff;
+  font-family: 'Nova Flat';font-size: 25px;;
+}
+
+.appTrendingFonts{
+  font-family: 'Nova Flat';font-size: 75px;;
+}
+
+.appGossipFont{
+  font-family: 'Nova Flat';font-size: 55px;;
+}
+
+.appCommentHeaderFont{
+  font-family: 'Nova Flat';font-size: 20px;;
+}
+
 .blogImageParentDiv{
   display: table-cell;
   width: 100;
@@ -107,4 +132,15 @@
     border-radius: 99em; */
     border: 0px solid green;
     box-shadow: 0 6px 5px green;
+}
+
+.userComment{
+  width: 100%;
+  background-color: #fff;
+  font-family: 'Nova Flat';font-size: 20px;;
+  float: left;
+}
+
+.userAvatar{
+  border-radius: 50%;
 }

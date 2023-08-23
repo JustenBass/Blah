@@ -9,7 +9,7 @@ import CurrentBlog from './pages/CurrentBlog';
 import './App.css';
 
 
-function App(props) {
+function App() {
 
 return (
     <div className="App">

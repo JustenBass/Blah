@@ -1,10 +1,10 @@
 class UsersController < ApplicationController
-    skip_before_action :authorize, only: :create
+    skip_before_action :authorize, only: [:index, :create, :show_two]
 
+    #This gives me all of the comments when thier user name
     def index
         render json: User.all
     end
-
 
     #signup
     def create

@@ -10,7 +10,6 @@ export default function Login() {
   const navigate = useNavigate()
 
 
-
   function handleSubmit(e) {
     e.preventDefault();
     fetch('/login', {
