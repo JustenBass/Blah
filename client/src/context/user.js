@@ -7,16 +7,42 @@ function UserProvider({ children }) {
 const [user, setUser] = useState(null)
 const [users, setUsers] = useState([])
 const [blogs, setBlogs] = useState([])
-const [unauthorizedBlogs, setUnauthorizedBlogs] = useState([])
+const [comments, setComments] = useState([])
+console.log(comments)
 
 useEffect(() => {
     fetch('/me')
     .then((r) => r.json())
     .then((data) => {
         setUser(data)
-        data.error ? setIsAuthenticated(false) : setIsAuthenticated(true)
+        if(data.error){
+            setIsAuthenticated(false)
+        }else{
+            setIsAuthenticated(true)
+            fetchComments()
+        }
     })
 }, [])
+
+const fetchComments = () => {
+    fetch('/comments')
+    .then((r) => r.json())
+    .then((comments) => {
+        setComments(comments)
+    })
+}
+
+const addComment = (comment) => {
+    fetch('/comments',{
+        method: 'POST',
+        headers: {'Content-Type' : 'application/json'},
+        body: JSON.stringify(comment)
+    })
+    .then((r) => r.json())
+    .then((newComment) => {
+        setComments([...comments, newComment])
+    })
+}
 
 useEffect(() => {
     fetch('/users')
@@ -29,13 +55,6 @@ useEffect(() => {
     .then((r) => r.json())
     .then((blogs) => setBlogs(blogs))
 }, [])
-
-useEffect(() => {
-    fetch('/unauthorized_blogs')
-    .then((r) => r.json())
-    .then((ub) => setUnauthorizedBlogs(ub))
-}, [])
-
 
 
 const login = (user) => {
@@ -54,7 +73,7 @@ const signup = (user) => {
 }
 
     return(
-        <UserContext.Provider value={{user, users, blogs, unauthorizedBlogs, login, logout, signup, isAuthenticated}}>
+        <UserContext.Provider value={{user, users, blogs, comments, addComment, login, logout, signup, isAuthenticated}}>
             {children}
         </UserContext.Provider>
     )

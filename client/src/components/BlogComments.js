@@ -15,8 +15,6 @@ useEffect(() => {
 
   return (
     <div className='userComment'>
-      <hr/>
-       <h4>Comments:</h4>
         <br/>
         <img className="userAvatar" src={userOfComment.avatar} alt="avatar" width="50" height="50"/>
         <b>{userOfComment.username}</b> -

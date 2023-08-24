@@ -2,6 +2,7 @@ import React, { useState, useContext, useEffect } from 'react'
 import { UserContext } from '../context/user'
 import { useParams } from "react-router-dom";
 import BlogComments from '../components/BlogComments';
+import CommentForm from '../components/CommentForm';
 
 export default function CurrentBlog() {
     const {id} = useParams()
@@ -36,7 +37,13 @@ export default function CurrentBlog() {
         <br/>
 
         <center>
-            {currentBlogComments}
+        <hr/>
+        <h4>Comments:</h4>
+        </center>
+        {currentBlogComments}
+
+        <center>
+            <CommentForm/>
         </center>
       </div>
   )

@@ -6,6 +6,7 @@ import Home from './pages/Home';
 import Signup from './pages/Signup';
 import Login from './pages/Login'
 import CurrentBlog from './pages/CurrentBlog';
+import UserComments from './components/UserComments';
 import './App.css';
 
 
@@ -21,6 +22,7 @@ return (
               <Route path="/signup" element={<Signup />}/>
               <Route path="/login" element={<Login />}/>
               <Route path="/blogs/:id" element={<CurrentBlog />}/>
+              <Route path="/comments" element={<UserComments />}/>
             </Routes>
             </Router>
         </UserProvider>

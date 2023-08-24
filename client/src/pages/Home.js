@@ -3,7 +3,7 @@ import { UserContext } from '../context/user'
 import Blogs from '../components/Blogs'
 
 export default function Home() {
-    const { isAuthenticated, blogs, unauthorizedBlogs } = useContext(UserContext)
+    const { isAuthenticated, blogs} = useContext(UserContext)
 
     const trendingBlogs = blogs.filter((blog) => blog.trending ? true  : null)
     const nonTrendingBlogs = blogs.filter((blog) => !blog.trending ?  true : null)
@@ -44,17 +44,6 @@ export default function Home() {
             </div>
           )
         } else {
-         return(
-            <div>
-                <center>
-                    {unauthorizedBlogs.map((blog) => (
-                        <Blogs
-                        key={blog.id}
-                        blog={blog}
-                        />
-                    ))}
-                </center>
-            </div>
-         )
+         return(<h1>PLEASE LOGIN OR SIGN UP</h1>)
     }
 }
