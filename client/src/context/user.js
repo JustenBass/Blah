@@ -32,17 +32,17 @@ const fetchComments = () => {
     })
 }
 
-const addComment = (comment) => {
-    fetch('/comments',{
-        method: 'POST',
-        headers: {'Content-Type' : 'application/json'},
-        body: JSON.stringify(comment)
-    })
-    .then((r) => r.json())
-    .then((newComment) => {
-        setComments([...comments, newComment])
-    })
-}
+// const addComment = (comment) => {
+//     fetch('/comments',{
+//         method: 'POST',
+//         headers: {'Content-Type' : 'application/json'},
+//         body: JSON.stringify(comment)
+//     })
+//     .then((r) => r.json())
+//     .then((newComment) => {
+//         setComments([...comments, newComment])
+//     })
+// }
 
 useEffect(() => {
     fetch('/users')
@@ -73,7 +73,7 @@ const signup = (user) => {
 }
 
     return(
-        <UserContext.Provider value={{user, users, blogs, comments, addComment, login, logout, signup, isAuthenticated}}>
+        <UserContext.Provider value={{user, setUser, users, setUsers, blogs, setBlogs, comments, setComments, login, logout, signup, isAuthenticated}}>
             {children}
         </UserContext.Provider>
     )

@@ -7,43 +7,37 @@ import CommentForm from '../components/CommentForm';
 export default function CurrentBlog() {
     const {id} = useParams()
     const { blogs } = useContext(UserContext)
-    const [currentBlog, setCurrentBlog] = useState({
-        comments: []
-    })
 
-
-    useEffect(() => {
-        const selectedBlog = blogs.find(blog => blog.id == id)
-        if(selectedBlog){
-            setCurrentBlog(selectedBlog)
+    const selectedBlog = blogs.find(blog => blog.id == id)
+        if(!selectedBlog){
+            return <p>Loading...</p>
         }
-    }, [blogs])
 
-
-    const currentBlogComments = currentBlog.comments.map((comment) => (
+    const selectedBlogComments = selectedBlog.comments.map((comment) => (
         <BlogComments
         key={comment.id}
         comment={comment}
         />
     ))
 
+    const commentCount = selectedBlog.comments.length
+
 
     return (
     <div className='currentBlogDiv'>
         <br/>
-        <img className="blogImgPage" src={currentBlog.image} alt="blogImg" width="900" height="850"/>
-        <h1 className='appGossipFont'>{currentBlog.title}</h1>
-        <article>{currentBlog.blog}</article>
+        <img className="blogImgPage" src={selectedBlog.image} alt="blogImg" width="900" height="850"/>
+        <h1 className='appGossipFont'>{selectedBlog.title}</h1>
+        <article>{selectedBlog.blog}</article>
         <br/>
 
         <center>
         <hr/>
-        <h4>Comments:</h4>
+        <h4>{commentCount} Comments:</h4>
         </center>
-        {currentBlogComments}
-
+        {selectedBlogComments}
         <center>
-            <CommentForm/>
+            <CommentForm currentBlog={selectedBlog}/>
         </center>
       </div>
   )

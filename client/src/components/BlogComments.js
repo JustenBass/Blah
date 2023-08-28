@@ -15,10 +15,12 @@ useEffect(() => {
 
   return (
     <div className='userComment'>
-        <br/>
+      <br/>
+      <div className='t'>
         <img className="userAvatar" src={userOfComment.avatar} alt="avatar" width="50" height="50"/>
         <b>{userOfComment.username}</b> -
         {comment.comment}
+      </div>
     </div>
   )
 }

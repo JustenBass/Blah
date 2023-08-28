@@ -96,6 +96,8 @@
   width: 325px;
   text-align: center;
 }
+
+
 .blogImage .fadedbox {
   background-color: rgb(7, 142, 180);
   position: absolute;
@@ -139,27 +141,15 @@
 }
 
 .blogImgPage{
-  /* display: block;
-    width: 450px;
-    height: 450px;
-    margin: 1em auto;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center center;
-    -webkit-border-radius: 99em;
-    -moz-border-radius: 99em;
-    border-radius: 99em; */
-    /* border: 40px solid rgb(177, 26, 137); */
     box-shadow: 0 6px 5px rgb(230, 9, 138);
 }
 
 .userComment{
-  width: 100%;
   background-color: #fff;
-  font-family: 'Nova Flat';font-size: 20px;;
-  float: left;
+  font-family: 'Nova Flat';font-size: 20px;
 }
 
 .userAvatar{
   border-radius: 50%;
 }
+

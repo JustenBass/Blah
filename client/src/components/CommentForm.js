@@ -2,34 +2,44 @@ import React, {useState, useContext, useEffect} from 'react'
 import { UserContext } from '../context/user'
 import { useParams } from 'react-router-dom'
 
-export default function CommentForm() {
-    const {id} = useParams()
-    const { addComment, blogs, user} = useContext(UserContext)
-    const [currentBlog, setCurrentBlog] = useState({})
+export default function CommentForm({currentBlog}) {
+    const { blogs, setBlogs } = useContext(UserContext)
     const [comment, setComment] = useState('')
 
 
-    useEffect(() => {
-      const selectedBlog = blogs.find(blog => blog.id == id)
-      if(selectedBlog){
-          setCurrentBlog(selectedBlog)
-      }
-  }, [blogs])
-
-
-    const handleSubmit = (e) => {
-        e.preventDefault()
-        addComment({
+    const addComment = (e) => {
+      e.preventDefault()
+      fetch('/comments',{
+          method: 'POST',
+          headers: {'Content-Type' : 'application/json'},
+          body: JSON.stringify({
             comment: comment,
-            user_id: user.id,
             blog_id: currentBlog.id
         })
-    }
+      })
+      .then((r) => r.json())
+      .then((newComment) => {
 
-    
+
+        const mapThroughBlogs = blogs.map((b) => {
+          if(b.id === newComment.blog_id){
+            const updateCurrentBlog = {
+              ...b,
+              comments: [...b.comments, newComment]
+            }
+            return updateCurrentBlog
+          } else {
+            return b
+          }
+        })
+
+        setBlogs(mapThroughBlogs)
+      })
+  }
+
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={addComment}>
         <input
         type="text"
         id="comment"
