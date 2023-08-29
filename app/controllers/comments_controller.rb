@@ -1,5 +1,5 @@
 class CommentsController < ApplicationController
-    # skip_before_action :authorize, only: :index
+    # skip_before_action :authorize, only: :update
 
     def index
         comments = current_user.comments
@@ -11,10 +11,16 @@ class CommentsController < ApplicationController
         render json: comment, status: :created
     end
 
+    def update
+        comment = current_user.comments.find(params[:id])
+        comment.update!(comment_params)
+        render json: comment, status: :accepted
+    end
+
     private
 
     def comment_params
-        params.permit(:comment, :user_id, :blog_id)
+        params.permit(:comment, :blog_id)
     end
 
     def current_user

@@ -17,6 +17,7 @@ export default function CurrentBlog() {
         <BlogComments
         key={comment.id}
         comment={comment}
+        currentBlog={selectedBlog}
         />
     ))
 

@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 const UserContext = React.createContext()
 
 function UserProvider({ children }) {
-    const [isAuthenticated, setIsAuthenticated] = useState(false)
+const [isAuthenticated, setIsAuthenticated] = useState(false)
 const [user, setUser] = useState(null)
 const [users, setUsers] = useState([])
 const [blogs, setBlogs] = useState([])
@@ -31,18 +31,6 @@ const fetchComments = () => {
         setComments(comments)
     })
 }
-
-// const addComment = (comment) => {
-//     fetch('/comments',{
-//         method: 'POST',
-//         headers: {'Content-Type' : 'application/json'},
-//         body: JSON.stringify(comment)
-//     })
-//     .then((r) => r.json())
-//     .then((newComment) => {
-//         setComments([...comments, newComment])
-//     })
-// }
 
 useEffect(() => {
     fetch('/users')

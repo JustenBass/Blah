@@ -1,6 +1,5 @@
-import React, {useState, useContext, useEffect} from 'react'
+import React, { useState, useContext } from 'react'
 import { UserContext } from '../context/user'
-import { useParams } from 'react-router-dom'
 
 export default function CommentForm({currentBlog}) {
     const { blogs, setBlogs } = useContext(UserContext)
@@ -20,20 +19,19 @@ export default function CommentForm({currentBlog}) {
       .then((r) => r.json())
       .then((newComment) => {
 
-
-        const mapThroughBlogs = blogs.map((blog) => {
+        const addNewBlogComments = blogs.map((blog) => {
           if(blog.id === newComment.blog_id){
-            const updateCurrentBlog = {
+            const addNewCurrentBlogComments = {
               ...blog,
               comments: [...blog.comments, newComment]
             }
-            return updateCurrentBlog
+            return addNewCurrentBlogComments
           } else {
-            return blog 
+            return blog
           }
         })
 
-        setBlogs(mapThroughBlogs)
+        setBlogs(addNewBlogComments)
       })
   }
 
