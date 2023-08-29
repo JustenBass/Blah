@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect } from 'react'
+import React, { useContext } from 'react'
 import { UserContext } from '../context/user'
 import { useParams } from "react-router-dom";
 import BlogComments from '../components/BlogComments';
@@ -12,6 +12,7 @@ export default function CurrentBlog() {
         if(!selectedBlog){
             return <p>Loading...</p>
         }
+
 
     const selectedBlogComments = selectedBlog.comments.map((comment) => (
         <BlogComments

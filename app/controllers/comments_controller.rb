@@ -14,7 +14,10 @@ class CommentsController < ApplicationController
     def update
         comment = current_user.comments.find(params[:id])
         comment.update!(comment_params)
-        render json: comment, status: :accepted
+        render json: comment
+    end
+
+    def destroy
     end
 
     private

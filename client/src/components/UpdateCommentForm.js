@@ -1,36 +1,45 @@
 import React, { useState, useContext } from 'react'
 import { UserContext } from '../context/user'
 
-export default function UpdateCommentForm({comment, currentUser, currentBlog}) {
-    const { users, setUsers } = useContext(UserContext)
-    const [userUpdatedComment, setUserUpdatedComment] = useState('')
+export default function UpdateCommentForm({ comment, currentUser, currentBlog, setUpdateFlag }) {
+    const { blogs, setBlogs } = useContext(UserContext)
+    const [userUpdatedComment, setUserUpdatedComment] = useState(comment.comment)
 
 
 
-    function updateUserComment(){
+    function updateUserComment(e){
+        e.preventDefault()
         fetch(`/comments/${comment.id}`, {
             method: 'PATCH',
             headers: { 'Content-Type' : 'application/json'},
             body: JSON.stringify({
                 comment: userUpdatedComment,
-                blog_id: currentBlog.id
+
             })
         })
         .then((r) => r.json())
         .then((updatedComment) => {
 
-            const updateUserComment = users.map((user) => {
-                if(user.id === updatedComment.user_id){
-                    const updateCurrentUserComment = {
-                        ...user,
-                        comments: [user.comments, updatedComment]
-                    }
-                    return updateCurrentUserComment
+            const updateSelectedCurrentBlogComment = currentBlog.comments.map((comment) => {
+                if(comment.id === updatedComment.id){
+                    return updatedComment
                 } else {
-                    return user
+                    return comment
                 }
             })
-            setUsers(updateUserComment)
+
+            const updateCurrentBlogCommentsShowPage = blogs.map((blog) => {
+                if(blog.id === updatedComment.blog_id){
+                    return {
+                        ...currentBlog,
+                        comments: updateSelectedCurrentBlogComment
+                    }
+                } else {
+                    return blog
+                }
+            })
+            setBlogs(updateCurrentBlogCommentsShowPage)
+            setUpdateFlag(true)
         })
     }
 
@@ -41,8 +50,6 @@ export default function UpdateCommentForm({comment, currentUser, currentBlog}) {
                 <form onSubmit={updateUserComment}>
                 <input
                 type="text"
-                name="comment"
-                placeholder={comment.comment}
                 onChange={(e) => setUserUpdatedComment(e.target.value)}
                 value={userUpdatedComment}
                 />
