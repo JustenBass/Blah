@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   resources :users, only: [:index]
-  resources :blogs, only: [:index, :show]
+  resources :blogs, only: [:index]
   resources :comments, only: [:index, :create]
 
   post '/login', to: 'sessions#create'

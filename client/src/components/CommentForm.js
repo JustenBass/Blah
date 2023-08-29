@@ -21,15 +21,15 @@ export default function CommentForm({currentBlog}) {
       .then((newComment) => {
 
 
-        const mapThroughBlogs = blogs.map((b) => {
-          if(b.id === newComment.blog_id){
+        const mapThroughBlogs = blogs.map((blog) => {
+          if(blog.id === newComment.blog_id){
             const updateCurrentBlog = {
-              ...b,
-              comments: [...b.comments, newComment]
+              ...blog,
+              comments: [...blog.comments, newComment]
             }
             return updateCurrentBlog
           } else {
-            return b
+            return blog 
           }
         })
 
