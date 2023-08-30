@@ -9,23 +9,21 @@ export default function CurrentBlog() {
     const {id} = useParams()
     const { blogs } = useContext(UserContext)
     const [commentFormFlag, setCommentFormFlag] = useState(true)
-    console.log("tog", commentFormFlag)
 
     const selectedBlog = blogs.find(blog => blog.id == id)
         if(!selectedBlog){
             return <p>Loading...</p>
         }
 
-
-    const selectedBlogComments = selectedBlog.comments.map((comment) => (
+        const selectedBlogComments = selectedBlog.comments.map((comment) => (
         <BlogComments
         key={comment.id}
         comment={comment}
         currentBlog={selectedBlog}
         />
-    ))
+        ))
 
-    const commentCount = selectedBlog.comments.length
+        const commentCount = selectedBlog.comments.length
 
 
     return (
@@ -66,6 +64,7 @@ export default function CurrentBlog() {
           </div>
           :
           <div className='addCommentParent2'>
+
 
           <CommentForm currentBlog={selectedBlog} setCommentFormFlag={setCommentFormFlag}/>
 

@@ -5,7 +5,6 @@ const UserContext = React.createContext()
 function UserProvider({ children }) {
     const [isAuthenticated, setIsAuthenticated] = useState(false)
     const [user, setUser] = useState(null)
-    const [users, setUsers] = useState([])
     const [blogs, setBlogs] = useState([])
     const [comments, setComments] = useState([])
 
@@ -32,11 +31,6 @@ const fetchComments = () => {
 }
 
 
-useEffect(() => {
-    fetch('/users')
-    .then((r) => r.json())
-    .then((users) => setUsers(users))
-}, [])
 
 useEffect(() => {
     fetch('/blogs')
@@ -61,7 +55,7 @@ const signup = (user) => {
 }
 
     return(
-        <UserContext.Provider value={{user, setUser, users, setUsers, blogs, setBlogs, comments, setComments, login, logout, signup, isAuthenticated}}>
+        <UserContext.Provider value={{user, setUser, blogs, setBlogs, comments, setComments, login, logout, signup, isAuthenticated}}>
             {children}
         </UserContext.Provider>
     )

@@ -1,7 +1,7 @@
 import React, { useState, useContext } from 'react'
 import { UserContext } from '../context/user'
 
-export default function UpdateCommentForm({ comment, currentUser, currentBlog, setUpdateFlag }) {
+export default function UpdateCommentForm({ comment, currentBlog, setUpdateFlag }) {
     const { blogs, setBlogs } = useContext(UserContext)
     const [userUpdatedComment, setUserUpdatedComment] = useState(comment.comment)
 
@@ -45,8 +45,8 @@ export default function UpdateCommentForm({ comment, currentUser, currentBlog, s
 
   return (
         <div>
-                <img className="userAvatar" src={currentUser.avatar} alt="avatar" width="50" height="50"/>
-                <b>{currentUser.username}</b> -
+                <img className="userAvatar" src={comment.user_avatar} alt="avatar" width="50" height="50"/>
+                <b>{comment.username}</b> -
                 <form onSubmit={updateUserComment}>
                 <input
                 className='commentFormInput'
