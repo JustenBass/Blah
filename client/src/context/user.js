@@ -3,12 +3,12 @@ import React, { useState, useEffect } from "react";
 const UserContext = React.createContext()
 
 function UserProvider({ children }) {
-const [isAuthenticated, setIsAuthenticated] = useState(false)
-const [user, setUser] = useState(null)
-const [users, setUsers] = useState([])
-const [blogs, setBlogs] = useState([])
-const [comments, setComments] = useState([])
-console.log(comments)
+    const [isAuthenticated, setIsAuthenticated] = useState(false)
+    const [user, setUser] = useState(null)
+    const [users, setUsers] = useState([])
+    const [blogs, setBlogs] = useState([])
+    const [comments, setComments] = useState([])
+    console.log(comments)
 
 useEffect(() => {
     fetch('/me')
@@ -31,6 +31,7 @@ const fetchComments = () => {
         setComments(comments)
     })
 }
+
 
 useEffect(() => {
     fetch('/users')
