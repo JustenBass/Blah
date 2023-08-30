@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom'
 
 export default function Signup() {
   const [username, setUsername] = useState('')
-  const [avatar, setAvater] = useState('')
+  const [avatar, setAvatar] = useState('')
   const [password, setPassword] = useState('')
   const [passwordConfirmation, setPasswordConfirmation] = useState('')
   const [errorsList, setErrorsList] = useState([])
@@ -56,7 +56,7 @@ export default function Signup() {
           type="text"
           id="avatar"
           value={avatar}
-          onChange={(e) => setAvater(e.target.value)}
+          onChange={(e) => setAvatar(e.target.value)}
         />
 
         <input

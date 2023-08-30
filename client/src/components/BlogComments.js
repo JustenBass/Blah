@@ -3,9 +3,10 @@ import { UserContext } from '../context/user'
 import UpdateCommentForm from './UpdateCommentForm'
 
 export default function BlogComments({comment, currentBlog}) {
-const { users, blogs, setBlogs } = useContext(UserContext)
+const { users, blogs, setBlogs, user, isAuthenticated} = useContext(UserContext)
 const [updateFlag, setUpdateFlag] = useState(true)
 const currentUser = users.find((user) => user.id === comment.user_id)
+console.log("User logged in", isAuthenticated)
 
 const deleteBlogComment = (selectedComment) => {
   fetch(`/comments/${selectedComment.id}`,{
@@ -32,15 +33,18 @@ const deleteBlogComment = (selectedComment) => {
   return (
     <>
     { updateFlag ?
-     <div className='userComment'>
-     <div className='t'>
+      <div>
        <img className="userAvatar" src={ currentUser.avatar } alt="avatar" width="50" height="50"/>
        <b>{ currentUser.username }</b> -
        {comment.comment}
-       <button onClick={() => setUpdateFlag(false)}>update</button>
-       <button onClick={() => deleteBlogComment(comment)}>remove</button>
-     </div>
-   </div>
+       {user.id === comment.user_id ?
+       <>
+       <button className="userButtonCommentTools" onClick={() => setUpdateFlag(false)}>edit</button>
+       <button className="userButtonCommentTools" onClick={() => deleteBlogComment(comment)}>remove</button>
+       </>
+       : null }
+        </div>
+
    :
    <UpdateCommentForm comment={comment} currentUser={currentUser} currentBlog={currentBlog} setUpdateFlag={setUpdateFlag}/>
    }

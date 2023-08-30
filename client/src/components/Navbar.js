@@ -25,7 +25,7 @@ export default function Navbar() {
         </div>
 
         <div className='nav inline-block-child'>
-          <h1>Hello, {user.username} </h1>
+          <h1>Hi, {user.username}! </h1>
         </div>
 
       <button onClick={logoutUser}>Logout</button>

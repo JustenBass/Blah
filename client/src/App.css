@@ -37,10 +37,6 @@
   }
 }
 
-/* .grayImg{
-  -webkit-filter: grayscale(100%);
-  filter: grayscale(100%)
-} */
 .allBlogsDiv{
   background-color: #fff;
 }
@@ -51,12 +47,95 @@
   margin: auto;
 }
 
-.navParent{
-  color: #fff;
+.addCommentParent {
+  width: 180px;
+  height: 50px;
+  /* Aligns the children items in a row direction */
+  display: flex;
+}
+
+.addCommentChild1{
+  width: 130px;
+  height: 100px;
+  background-color: rgb(255, 255, 255)
+}
+
+.addCommentChild2{
+  width: 50px;
+  height: 10px;
+  background-color: rgb(255, 255, 255);
+  border: 0px;
+}
+
+.addCommentParent2{
+  width: 250px;
+  height: 100px;
+  /* Aligns the children items in a row direction */
+  display: flex;
+}
+
+.addCommentChild3{
+  /* color: #61dafb;
+  width: 50px;
+  height: 0px; */
+  background-color: white;
+  border: 0px;
+}
+
+.commentFormInput{
+  height: 40px;
   font-family: 'Nova Flat';font-size: 25px;;
-  margin-left: 50%;
+  font-weight: bolder;
+  border: none;
+  outline: none;
+  border-bottom: 1px solid #ccc;
+  background-color: white;
+}
+
+.commentFormInputButton{
+  height: 40px;
+  font-family: 'Nova Flat';font-size: 25px;;
+  font-weight: bolder;
+  border: none;
+  outline: none;
+  background-color: white;
+}
+
+.commentFormInputButtonTwo{
+  height: 40px;
+  font-family: 'Nova Flat';font-size: 25px;;
+  font-weight: bolder;
+  border: none;
+  outline: none;
+  background-color: white;
+  color: rgb(255, 0, 187);
+}
+
+.updateCommentFormInputButton{
+  height: 45.5px;
+  font-family: 'Nova Flat';font-size: 25px;;
+  font-weight: bolder;
+  border: none;
+  outline: none;
+  background-color: white;
+}
+
+.userButtonCommentTools{
+  background-color: white;
+  color: rgb(255, 0, 187);
+  border: 0px;
+}
+
+
+.navParent{
+  background-color: rgba(255, 45, 122, 0.627);
+  color: #fff;
+  width: 1425px;
+  font-family: 'Nova Flat';font-size: 25px;;
+  /* margin-left: 50%; */
   text-shadow: 5px 5px rgb(0, 0, 0);
 }
+
 
 .inline-block-child {
   display: inline-block;
@@ -77,9 +156,6 @@
   font-family: 'Nova Flat';font-size: 20px;
 }
 
-.appCommentHeaderShadow{
-  text-shadow: 5px 5px yellow;
-}
 
 .blogImageParentDiv{
   display: table-cell;
@@ -147,9 +223,83 @@
 .userComment{
   background-color: #fff;
   font-family: 'Nova Flat';font-size: 20px;
+
+}
+
+.commentScroll{
+  background-color: white;
+  font-family: 'Nova Flat';font-size: 24px;;
+  width: 900px;
+  height: 200px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  text-align: center;
+  padding: 20px;
 }
 
 .userAvatar{
   border-radius: 50%;
 }
 
+
+
+
+
+
+
+
+
+
+
+
+.currentBlogImage {
+  cursor: pointer;
+  height: 850px;
+  position: relative;
+  overflow: hidden;
+  width: 900px;
+  text-align: center;
+}
+
+
+.currentBlogImage .currentBlogFadedbox {
+  background-color: rgb(228, 127, 11);
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: #fff;
+  -webkit-transition: all 300ms ease-out;
+  -moz-transition: all 300ms ease-out;
+  -o-transition: all 300ms ease-out;
+  -ms-transition: all 300ms ease-out;
+  transition: all 300ms ease-out;
+  opacity: 0;
+  width: 900px;
+  height: 850px;
+  padding: 0px 0px;
+}
+.currentBlogImage:hover .currentBlogFadedbox {
+  opacity: 0.8;
+}
+.currentBlogImage .text {
+  -webkit-transition: all 300ms ease-out;
+  -moz-transition: all 300ms ease-out;
+  -o-transition: all 300ms ease-out;
+  -ms-transition: all 300ms ease-out;
+  transition: all 300ms ease-out;
+  transform: translateY(30px);
+  -webkit-transform: translateY(30px);
+}
+.currentBlogImage .title {
+  font-size: 10.5em;
+  text-transform: uppercase;
+  opacity: 0;
+  transition-delay: 0.2s;
+  transition-duration: 0.3s;
+}
+.currentBlogImage:hover .title,
+.currentBlogImage .title {
+  opacity: 1;
+  transform: translateY(0px);
+  -webkit-transform: translateY(0px);
+}

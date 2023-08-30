@@ -8,7 +8,6 @@ function UserProvider({ children }) {
     const [users, setUsers] = useState([])
     const [blogs, setBlogs] = useState([])
     const [comments, setComments] = useState([])
-    console.log(comments)
 
 useEffect(() => {
     fetch('/me')

@@ -49,12 +49,13 @@ export default function UpdateCommentForm({ comment, currentUser, currentBlog, s
                 <b>{currentUser.username}</b> -
                 <form onSubmit={updateUserComment}>
                 <input
+                className='commentFormInput'
                 type="text"
                 onChange={(e) => setUserUpdatedComment(e.target.value)}
                 value={userUpdatedComment}
-                />
+                autoFocus/>
 
-                <input type="submit"/>
+                <button className='updateCommentFormInputButton' type="submit">SEND</button>
             </form>
         </div>
   )

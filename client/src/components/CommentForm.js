@@ -1,8 +1,9 @@
 import React, { useState, useContext } from 'react'
 import { UserContext } from '../context/user'
 
-export default function CommentForm({currentBlog}) {
+export default function CommentForm({currentBlog, setCommentFormFlag}) {
     const { blogs, setBlogs } = useContext(UserContext)
+    const [sendCommentAlert, setSendCommentAlert] = useState(true)
     const [comment, setComment] = useState('')
 
 
@@ -32,19 +33,37 @@ export default function CommentForm({currentBlog}) {
         })
 
         setBlogs(addNewBlogComments)
+        setComment("")
+        setCommentFormFlag(true)
       })
   }
 
 
   return (
     <form onSubmit={addComment}>
-        <input
+
+         <input
+        className='commentFormInput'
         type="text"
         id="comment"
-        onChange={(e) => setComment(e.target.value)}
+        placeholder='Blah Blah Blah...'
+        value={comment}
+        onChange={(e) => {
+          if(e.target.value){
+            setComment(e.target.value)
+            setSendCommentAlert(false)
+          } else {
+            setComment(e.target.value)
+            setSendCommentAlert(true)
+          }
+        }}
         />
 
-        <input type="submit"/>
+        {sendCommentAlert ?
+        <button className='commentFormInputButton' type='submit'>SEND</button>
+        :
+        <button className='commentFormInputButtonTwo' type='submit'>SEND</button>
+        }
     </form>
   )
 }
