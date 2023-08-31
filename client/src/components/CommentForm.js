@@ -2,7 +2,7 @@ import React, { useState, useContext } from 'react'
 import { UserContext } from '../context/user'
 
 export default function CommentForm({currentBlog, setCommentFormFlag}) {
-    const { blogs, setBlogs } = useContext(UserContext)
+    const { blogs, setBlogs, user, setUser } = useContext(UserContext)
     const [sendCommentAlert, setSendCommentAlert] = useState(true)
     const [comment, setComment] = useState('')
 
@@ -14,7 +14,7 @@ export default function CommentForm({currentBlog, setCommentFormFlag}) {
           headers: {'Content-Type' : 'application/json'},
           body: JSON.stringify({
             comment: comment,
-            blog_id: currentBlog.id
+            blog_id: currentBlog.id,
         })
       })
       .then((r) => r.json())
@@ -32,6 +32,20 @@ export default function CommentForm({currentBlog, setCommentFormFlag}) {
           }
         })
 
+        // const addBlogToUserProfilePostComment = user.blogs.map((blog) => {
+        //   if(blog.id === newComment.blog_id){
+        //     const g = {
+        //       ...user,
+        //       blogs: [...user.blogs, newComment.blog]
+        //      }
+        //      return g
+        //   } else {
+        //     return blog
+        //   }
+        // })
+
+
+        // setUser(addBlogToUserProfilePostComment)
         setBlogs(addNewBlogComments)
         setComment("")
         setCommentFormFlag(true)

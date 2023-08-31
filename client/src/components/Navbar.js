@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 import { UserContext } from '../context/user'
-import { NavLink, useNavigate } from 'react-router-dom'
+import { NavLink, useNavigate, Link } from 'react-router-dom'
 
 export default function Navbar() {
   const {user, logout, isAuthenticated} = useContext(UserContext)
@@ -21,7 +21,9 @@ export default function Navbar() {
     return (
       <div className='navParent'>
         <div className='nav inline-block-child'>
+        <Link to={'/me'}>
           <img className='userAvatar' src={user.avatar} alt="avatar" height="100" width="100"/>
+        </Link>
         </div>
 
         <div className='nav inline-block-child'>

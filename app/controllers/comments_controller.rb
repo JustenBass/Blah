@@ -1,5 +1,4 @@
 class CommentsController < ApplicationController
-    # skip_before_action :authorize, only: :update
 
     def index
         comments = current_user.comments
@@ -20,7 +19,7 @@ class CommentsController < ApplicationController
     def destroy
         comment = current_user.comments.find(params[:id])
         comment.destroy
-        head :no_content 
+        head :no_content
     end
 
     private

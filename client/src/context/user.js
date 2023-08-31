@@ -6,7 +6,7 @@ function UserProvider({ children }) {
     const [isAuthenticated, setIsAuthenticated] = useState(false)
     const [user, setUser] = useState(null)
     const [blogs, setBlogs] = useState([])
-    const [comments, setComments] = useState([])
+
 
 useEffect(() => {
     fetch('/me')
@@ -17,18 +17,9 @@ useEffect(() => {
             setIsAuthenticated(false)
         }else{
             setIsAuthenticated(true)
-            fetchComments()
         }
     })
 }, [])
-
-const fetchComments = () => {
-    fetch('/comments')
-    .then((r) => r.json())
-    .then((comments) => {
-        setComments(comments)
-    })
-}
 
 
 
@@ -55,7 +46,7 @@ const signup = (user) => {
 }
 
     return(
-        <UserContext.Provider value={{user, setUser, blogs, setBlogs, comments, setComments, login, logout, signup, isAuthenticated}}>
+        <UserContext.Provider value={{user, setUser, blogs, setBlogs, login, logout, signup, isAuthenticated}}>
             {children}
         </UserContext.Provider>
     )

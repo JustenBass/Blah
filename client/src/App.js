@@ -5,6 +5,7 @@ import Navbar from './components/Navbar';
 import Home from './pages/Home';
 import Signup from './pages/Signup';
 import Login from './pages/Login'
+import UserProfile from './pages/UserProfile';
 import CurrentBlog from './pages/CurrentBlog';
 import './App.css';
 
@@ -20,6 +21,7 @@ return (
               <Route path="/" element={<Home />}/>
               <Route path="/signup" element={<Signup />}/>
               <Route path="/login" element={<Login />}/>
+              <Route path="/me" element={<UserProfile />}/>
               <Route path="/blogs/:id" element={<CurrentBlog />}/>
             </Routes>
             </Router>

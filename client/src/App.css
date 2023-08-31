@@ -37,6 +37,21 @@
   }
 }
 
+.userProfileParentDiv{
+  background-color: white;
+  width: 1000px;
+  margin: auto;
+  /* display: inline-grid;
+    grid-template-columns: 1fr 1fr; */
+}
+
+.userProfileChildDiv{
+ display: inline-grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+
+
 .allBlogsDiv{
   background-color: #fff;
 }
@@ -159,7 +174,7 @@
 
 .blogImageParentDiv{
   display: table-cell;
-  width: 100;
+  width: 50px;
   height: 100px;
 }
 
@@ -216,6 +231,10 @@
   -webkit-transform: translateY(0px);
 }
 
+
+
+
+
 .blogImgPage{
     box-shadow: 0 6px 5px rgb(230, 9, 138);
 }
@@ -240,15 +259,6 @@
 .userAvatar{
   border-radius: 50%;
 }
-
-
-
-
-
-
-
-
-
 
 
 

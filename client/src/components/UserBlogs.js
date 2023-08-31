@@ -1,14 +1,13 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-export default function Blogs({blog}) {
-
+export default function UserBlogs({blog}) {
   return (
-    <div className='blogImageParentDiv'>
+    <div>
        <Link to={`/blogs/${blog.id}`}>
-        <div className='blogImage'>
+        <div className='profileBlogImage'>
           <img src={blog.image} alt="blogImg" width="325" height="285"/>
-          <div className='fadedbox'>
+          <div className='profileFadedbox'>
             <div className='title text'>
               {blog.title}
             </div>

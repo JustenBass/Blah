@@ -4,8 +4,4 @@ class Comment < ApplicationRecord
 
     # validates :comment, presence: true
 
-    def user_avatar
-        self.user.avatar
-    end
-    
 end
