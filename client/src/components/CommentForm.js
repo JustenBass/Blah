@@ -32,20 +32,20 @@ export default function CommentForm({currentBlog, setCommentFormFlag}) {
           }
         })
 
-        // const addBlogToUserProfilePostComment = user.blogs.map((blog) => {
-        //   if(blog.id === newComment.blog_id){
-        //     const g = {
-        //       ...user,
-        //       blogs: [...user.blogs, newComment.blog]
-        //      }
-        //      return g
-        //   } else {
-        //     return blog
-        //   }
-        // })
+        const addBlogToUserProfilePostComment = user.blogs.map((blog) => {
+          if(blog.id === newComment.blog_id){
+            const g = {
+              ...user,
+              blogs: [...user.blogs, newComment.blog]
+             }
+             return g
+          } else {
+            return blog
+          }
+        })
 
 
-        // setUser(addBlogToUserProfilePostComment)
+        setUser(addBlogToUserProfilePostComment)
         setBlogs(addNewBlogComments)
         setComment("")
         setCommentFormFlag(true)
