@@ -45,9 +45,17 @@
     grid-template-columns: 1fr 1fr; */
 }
 
-.userProfileChildDiv{
+.userProfileAvatar{
+  border-radius: 50%;
+}
+
+.userProfileBlogsChildDiv{
  display: inline-grid;
     grid-template-columns: 1fr 1fr;
+}
+
+.userProfileBlogImage{
+  border-radius: 50%;
 }
 
 
@@ -257,9 +265,6 @@
   padding: 20px;
 }
 
-.userAvatar{
-  border-radius: 50%;
-}
 
 
 

@@ -2,10 +2,18 @@ import React, { useState, useContext } from 'react'
 import { UserContext } from '../context/user'
 
 export default function UpdateCommentForm({ comment, currentBlog, setUpdateFlag }) {
-    const { blogs, setBlogs } = useContext(UserContext)
+    const { blogs, setBlogs, deleteBlogComment } = useContext(UserContext)
     const [userUpdatedComment, setUserUpdatedComment] = useState(comment.comment)
+    const [errors, setErrors] = useState('')
+    const [showErrorsFlag, setShowErrosFlag] = useState(true)
 
-
+    const errorSwitchCountdown = () => {
+        let countdown = 5
+        while(countdown > 1){
+            console.log('countdown', --countdown)
+        }
+        setShowErrosFlag(true)
+    }
 
     function updateUserComment(e){
         e.preventDefault()
@@ -19,27 +27,31 @@ export default function UpdateCommentForm({ comment, currentBlog, setUpdateFlag 
         })
         .then((r) => r.json())
         .then((updatedComment) => {
-
-            const updateSelectedCurrentBlogComment = currentBlog.comments.map((comment) => {
-                if(comment.id === updatedComment.id){
-                    return updatedComment
-                } else {
-                    return comment
-                }
-            })
-
-            const updateCurrentBlogCommentsShowPage = blogs.map((blog) => {
-                if(blog.id === updatedComment.blog_id){
-                    return {
-                        ...currentBlog,
-                        comments: updateSelectedCurrentBlogComment
+            if(!updatedComment.errors){
+                const updateSelectedCurrentBlogComment = currentBlog.comments.map((comment) => {
+                    if(comment.id === updatedComment.id){
+                        return updatedComment
+                    } else {
+                        return comment
                     }
-                } else {
-                    return blog
-                }
-            })
-            setBlogs(updateCurrentBlogCommentsShowPage)
-            setUpdateFlag(true)
+                })
+
+                const updateCurrentBlogCommentsShowPage = blogs.map((blog) => {
+                    if(blog.id === updatedComment.blog_id){
+                        return {
+                            ...currentBlog,
+                            comments: updateSelectedCurrentBlogComment
+                        }
+                    } else {
+                        return blog
+                    }
+                })
+                setBlogs(updateCurrentBlogCommentsShowPage)
+                setUpdateFlag(true)
+            } else {
+                const errorsList = updatedComment.errors.map((error) => <h5>{error}</h5>)
+                setErrors(errorsList)
+            }
         })
     }
 
@@ -55,8 +67,12 @@ export default function UpdateCommentForm({ comment, currentBlog, setUpdateFlag 
                 value={userUpdatedComment}
                 autoFocus/>
 
-                <button className='updateCommentFormInputButton' type="submit">SEND</button>
+                <button className='updateCommentFormInputButton' type="submit"> SEND </button>
             </form>
+            <button className="userButtonCommentTools" onClick={() => deleteBlogComment(comment, currentBlog)}> remove </button>
+            <ul>
+            <h3>{errors}</h3>
+          </ul>
         </div>
   )
 }

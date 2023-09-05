@@ -6,7 +6,7 @@ export default function UserBlogs({blog}) {
     <div>
        <Link to={`/blogs/${blog.id}`}>
         <div className='profileBlogImage'>
-          <img src={blog.image} alt="blogImg" width="325" height="285"/>
+          <img className='userProfileBlogImage' src={blog.image} alt="blogImg" width="325" height="285"/>
           <div className='profileFadedbox'>
             <div className='title text'>
               {blog.title}

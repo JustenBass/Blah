@@ -28,7 +28,7 @@ export default function UserProfile() {
           <br/>
           { showProfileUpdate ?
           <div className='userProfileParentDiv'>
-            <img onClick={() => setShowProfileUpdate((show) => !show)} className='userAvatar' src={user.avatar} alt="avatar" height="350" width="350"/>
+            <img className='userProfileAvatar' onClick={() => setShowProfileUpdate((show) => !show)} src={user.avatar} alt="avatar" height="350" width="350"/>
             <h1>{user.username}</h1>
           </div>
           :
@@ -38,7 +38,7 @@ export default function UserProfile() {
           }
           <br/>
 
-          <div className='userProfileChildDiv'>
+          <div className='userProfileBlogsChildDiv'>
             {ProfileBlogs().reverse()}
           </div>
         </div>

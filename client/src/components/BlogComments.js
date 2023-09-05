@@ -3,9 +3,8 @@ import { UserContext } from '../context/user'
 import UpdateCommentForm from './UpdateCommentForm'
 
 export default function BlogComments({comment, currentBlog}) {
-const { user, deleteBlogComment } = useContext(UserContext)
+const { user } = useContext(UserContext)
 const [updateFlag, setUpdateFlag] = useState(true)
-console.log(user.blogs)
 
 
   return (
@@ -18,7 +17,6 @@ console.log(user.blogs)
        {user.id === comment.user_id ?
         <div>
           <button className="userButtonCommentTools" onClick={() => setUpdateFlag(false)}>edit</button>
-          <button className="userButtonCommentTools" onClick={() => deleteBlogComment(comment, currentBlog)}>remove</button>
         </div>
         : null }
       </div>
