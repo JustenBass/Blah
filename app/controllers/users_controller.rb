@@ -13,8 +13,8 @@ class UsersController < ApplicationController
     end
 
     def update
-        username = @current_user.update_attribute(:username, params[:username])
-        render json: username
+        @current_user.update!(user_params)
+        render json: @current_user, status: :accepted
     end
 
     private

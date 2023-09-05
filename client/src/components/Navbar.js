@@ -22,7 +22,7 @@ export default function Navbar() {
       <div className='navParent'>
         <div className='nav inline-block-child'>
         <Link to={'/me'}>
-          <img className='userAvatar' src={user.avatar} alt="avatar" height="100" width="100"/>
+          <img className='userProfileAvatar' src={user.avatar} alt="avatar" height="100" width="100"/>
         </Link>
         </div>
 

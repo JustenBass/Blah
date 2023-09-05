@@ -11,7 +11,7 @@ const [updateFlag, setUpdateFlag] = useState(true)
     <>
     { updateFlag ?
       <div>
-        <img className="userAvatar" src={ comment.user_avatar } alt="avatar" width="50" height="50"/>
+        <img className="userProfileAvatar" src={ comment.user_avatar } alt="avatar" width="50" height="50"/>
         <b>{ comment.username }</b> - {comment.comment}
 
        {user.id === comment.user_id ?

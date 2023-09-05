@@ -30,6 +30,7 @@ export default function UserProfile() {
           <div className='userProfileParentDiv'>
             <img className='userProfileAvatar' onClick={() => setShowProfileUpdate((show) => !show)} src={user.avatar} alt="avatar" height="350" width="350"/>
             <h1>{user.username}</h1>
+            <h1 className='appGossipFont'>BLOGS YOU'VE LEFT YOUR BLAHS ON...</h1>
           </div>
           :
           <div className='userProfileParentDiv'>

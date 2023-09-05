@@ -49,7 +49,7 @@ export default function UpdateCommentForm({ comment, currentBlog, setUpdateFlag 
                 setBlogs(updateCurrentBlogCommentsShowPage)
                 setUpdateFlag(true)
             } else {
-                const errorsList = updatedComment.errors.map((error) => <h5>{error}</h5>)
+                const errorsList = updatedComment.errors.map((error) => <>{error}</>)
                 setErrors(errorsList)
             }
         })
@@ -71,8 +71,8 @@ export default function UpdateCommentForm({ comment, currentBlog, setUpdateFlag 
             </form>
             <button className="userButtonCommentTools" onClick={() => deleteBlogComment(comment, currentBlog)}> remove </button>
             <ul>
-            <h3>{errors}</h3>
-          </ul>
+                <h3>{errors}</h3>
+            </ul>
         </div>
   )
 }
