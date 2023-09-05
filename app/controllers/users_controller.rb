@@ -12,12 +12,18 @@ class UsersController < ApplicationController
        render json: @current_user
     end
 
+    def update
+        username = @current_user.update_attribute(:username, params[:username])
+        render json: username
+    end
+
 
 
     private
 
     def user_params
-        params.permit(:username, :avatar, :password, :password_confirmation)
+        params.permit(:username, :avatar, :password, :password_confirmation )
     end
+
 
 end

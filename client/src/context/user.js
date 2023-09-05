@@ -45,8 +45,40 @@ const signup = (user) => {
     setIsAuthenticated(true)
 }
 
+const deleteBlogComment = (selectedComment, currentBlog) => {
+    fetch(`/comments/${selectedComment.id}`,{
+        method: 'DELETE',
+        headers: { 'Content-Type' : 'application/json'}
+    })
+    .then(() =>{
+      const nonDeletedBlogComments = currentBlog.comments.filter((comment) => comment.id !== selectedComment.id);
+
+      const updateBlogComments = blogs.map((blog) => {
+        if(blog.id === currentBlog.id){
+          return {
+            ...currentBlog,
+            comments: nonDeletedBlogComments
+          }
+        } else {
+          return blog
+        }
+      });
+      setBlogs(updateBlogComments);
+
+      const findUserComments = nonDeletedBlogComments.find((comment) => comment.user_id === user.id)
+
+      if(!findUserComments){
+            const filterUserBlogs = user.blogs.filter((blog) => blog.id !== selectedComment.blog_id)
+            const updateUser = { ...user, blogs: filterUserBlogs}
+            setUser(updateUser)
+            }
+      })
+    }
+
+
+
     return(
-        <UserContext.Provider value={{user, setUser, blogs, setBlogs, login, logout, signup, isAuthenticated}}>
+        <UserContext.Provider value={{user, setUser, blogs, setBlogs, deleteBlogComment, login, logout, signup, isAuthenticated}}>
             {children}
         </UserContext.Provider>
     )

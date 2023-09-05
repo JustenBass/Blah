@@ -30,7 +30,7 @@ export default function Navbar() {
           <h1>Hi, {user.username}! </h1>
         </div>
 
-      <button onClick={logoutUser}>Logout</button>
+      <button className='navLogout' onClick={logoutUser}>Logout</button>
     </div>
     )
   } else {

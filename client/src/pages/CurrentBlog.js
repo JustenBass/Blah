@@ -54,7 +54,7 @@ export default function CurrentBlog() {
           <div className='addCommentParent'>
 
             <div className='addCommentChild1'>
-            <h4>{commentCount} Comments:</h4>
+            <h4>{commentCount}</h4>
             </div>
 
             <div>

@@ -1,16 +1,15 @@
-import React, { useContext} from 'react'
+import React, { useState, useContext } from 'react'
 import { UserContext } from '../context/user'
 import UserBlogs from '../components/UserBlogs'
+import UpdateProfile from '../components/UpdateProfile';
 
 export default function UserProfile() {
-    const { user, isAuthenticated} = useContext(UserContext)
+    const { user, isAuthenticated} = useContext(UserContext);
+    const [showProfileUpdate, setShowProfileUpdate] = useState(true)
 
-    const BlogsCommentedOnByUser = () => {
+
+    const ProfileBlogs = () => {
       if(isAuthenticated){
-        // const removeBlogDuplicatesFromArray = user.blogs.map((blog) => [blog.id, blog])
-        // const newUserBlogHash = new Map(removeBlogDuplicatesFromArray)
-        // const blogHashValues = newUserBlogHash.values()
-        // const blogValuesArray = [...blogHashValues]
 
         return user.blogs.map((blog) => (
           <UserBlogs
@@ -18,37 +17,36 @@ export default function UserProfile() {
           blog={blog}
           />
         ))
-
       } else {
-       return null 
-      }
-    }
-
-
-
-
+       return null
+      };
+    };
 
     if(isAuthenticated){
       return (
         <div className='userProfileParentDiv'>
-        <center>
           <br/>
-            <img className='userAvatar' src={user.avatar} alt="avatar" height="350" width="350"/>
+          { showProfileUpdate ?
+          <div className='userProfileParentDiv'>
+            <img onClick={() => setShowProfileUpdate((show) => !show)} className='userAvatar' src={user.avatar} alt="avatar" height="350" width="350"/>
             <h1>{user.username}</h1>
-        </center>
-        <br/>
+          </div>
+          :
+          <div className='userProfileParentDiv'>
+            <UpdateProfile/>
+          </div>
+          }
+          <br/>
 
-        <div className='userProfileChildDiv'>
-        {BlogsCommentedOnByUser()}
+          <div className='userProfileChildDiv'>
+            {ProfileBlogs().reverse()}
+          </div>
         </div>
-
-        </div>
-      )
+        )
     } else {
       return (
         null
       )
-    }
-
-    }
+    };
+};
 
