@@ -1,4 +1,5 @@
 class CommentsController < ApplicationController
+skip_before_action :authorize, only: :index 
 
     def create
         comment = @current_user.comments.create!(comment_params)
@@ -22,5 +23,5 @@ class CommentsController < ApplicationController
     def comment_params
         params.permit(:comment, :blog_id)
     end
-    
+
 end

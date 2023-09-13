@@ -4,12 +4,12 @@ import { useNavigate } from 'react-router-dom'
 
 
 export default function Signup() {
-  const [username, setUsername] = useState('')
-  const [avatar, setAvatar] = useState('')
-  const [password, setPassword] = useState('')
-  const [passwordConfirmation, setPasswordConfirmation] = useState('')
-  const [errorsList, setErrorsList] = useState([])
-  const {signup} = useContext(UserContext)
+  const [ username, setUsername ] = useState( '' )
+  const [ avatar, setAvatar ] = useState( '' )
+  const [ password, setPassword ] = useState( '' )
+  const [ passwordConfirmation, setPasswordConfirmation ] = useState( '' )
+  const [ errorsList, setErrorsList ] = useState( [] )
+  const { signup } = useContext( UserContext )
   const navigate = useNavigate()
 
 
@@ -29,8 +29,8 @@ export default function Signup() {
     .then((r) => r.json())
     .then((user) => {
       if(!user.errors) {
-        signup(user)
-        navigate('/')
+        signup( user )
+        navigate( '/' )
       } else {
         setUsername('')
         setPassword('')
@@ -43,41 +43,58 @@ export default function Signup() {
 
 
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          id="username"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-        />
+    <div className='signupFormParentDiv'>
+      <h1 className='homeLoginSignupBlogsHeader'> BLAH 💋</h1>
+      <form onSubmit={ handleSubmit }>
+        <div>
+          <input
+            className='signupFormInput'
+            type="text"
+            id="username"
+            placeholder='username...'
+            value={ username }
+            onChange={ (e) => setUsername(e.target.value) }
+            autoFocus/>
+        </div>
 
         <input
+          className='signupFormInput'
           type="text"
           id="avatar"
-          value={avatar}
-          onChange={(e) => setAvatar(e.target.value)}
+          placeholder='avatar url...'
+          value={ avatar }
+          onChange={ (e) => setAvatar(e.target.value) }
         />
 
-        <input
-          type="password"
-          id="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
+        <div>
+          <input
+            className='signupFormInput'
+            type="password"
+            id="password"
+            placeholder='password...'
+            value={ password }
+            onChange={ (e) => setPassword(e.target.value) }
+          />
+        </div>
 
         <input
+          className='signupFormInput'
           type="password"
           id="password_confirmation"
-          value={passwordConfirmation}
-          onChange={(e) => setPasswordConfirmation(e.target.value)}
+          placeholder='confirm password...'
+          value={ passwordConfirmation }
+          onChange={ (e) => setPasswordConfirmation(e.target.value) }
         />
 
-        <input type="submit"/>
+        <div>
+          <br/>
+          <input
+          className='signupFormInput'
+          type="submit"/>
+        </div>
       </form>
-      <ul>
-        {errorsList}
-      </ul>
+
+        <h1 className='signupErrors'>{ errorsList }</h1>
     </div>
-  )
-}
+  );
+};

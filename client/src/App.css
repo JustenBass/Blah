@@ -37,22 +37,157 @@
   }
 }
 
-.userProfileParentDiv{
+.userErrorDiv{
+  background-color: #fff;
+  width: 1000px;
+  height: 300px;
+  margin: auto;
+  font-family: 'Nova Flat';font-size: 70px;;
+  text-shadow: 5px 5px rgba(101, 100, 82, 0.349);
+}
+
+.navbarFlexParent{
+  display: flex;
+  gap: 20px;
+  background-color: rgba(255, 45, 122, 0.627);
+  color: #fff;
+  width: 1425px;
+  font-family: 'Nova Flat';font-size: 25px;;
+  text-shadow: 5px 5px rgb(0, 0, 0);
+}
+
+.navbarLinkButtons {
+  appearance: none;
+  background-color: #000000;
+  border: 2px solid #1A1A1A;
+  border-radius: 15px;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: inline-block;
+  font-family: 'Nova Flat';font-size: 25px;;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: normal;
+  margin: 0;
+  min-height: 60px;
+  min-width: 0;
+  outline: none;
+  padding: 16px 24px;
+  text-align: center;
+  text-decoration: none;
+  transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: 100%;
+  will-change: transform;
+  margin-top: 36px;
+}
+
+.navbarLinkButtons:disabled {
+  pointer-events: none;
+}
+
+.navbarLinkButtons:hover {
+  box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+  transform: translateY(-2px);
+}
+
+.navbarLinkButtons:active {
+  box-shadow: none;
+  transform: translateY(0);
+}
+
+.loginSignupNavButtonsDiv{
   background-color: white;
   width: 1000px;
   margin: auto;
 }
 
-.userProfileAvatar{
-  border-radius: 50%;
+.loginSignupNavButtons{
+  background-color: white;
+  width: 300px;
+  margin: auto;
+  font-family: 'Nova Flat';font-size: 25px;;
 }
 
-.userProfileBlogsChildDiv{
- display: inline-grid;
- grid-template-columns: 1fr 1fr;
+.homeLoginSignupBlogsDivParent{
+  background-color: white;
 }
 
-.userProfileBlogImageDiv {
+.homeLoginSignupBlogsHeader{
+  font-family: 'Nova Flat';font-size: 60px;;
+  text-shadow: 5px 5px rgba(101, 100, 82, 0.349);
+}
+
+.homeLoginSignupBlogsDivChild{
+  font-family: 'Nova Flat';font-size: 15px;;
+  text-shadow: 5px 5px rgba(101, 100, 82, 0.349);
+}
+
+
+.loginFormParentDiv{
+  background-color: #fff;
+  width: 850px;
+  height: 500px;
+  margin: auto;
+}
+
+.loginFormInput{
+  height: 50px;
+  width: 400px;
+  background-color: white;
+  font-family: 'Nova Flat';font-size: 35px;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgb(255, 0, 157);
+  box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgb(255, 0, 157);
+}
+
+.loginErrors{
+  font-family: 'Nova Flat';font-size: 20px;
+}
+
+.signupFormParentDiv{
+  background-color: #fff;
+  width: 850px;
+  height: 500px;
+  margin: auto;
+}
+
+.signupFormInput{
+  height: 50px;
+  width: 400px;
+  background-color: white;
+  font-family: 'Nova Flat';font-size: 35px;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgb(255, 0, 157);
+  box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgb(255, 0, 157);
+}
+
+.signupErrors{
+  font-family: 'Nova Flat';font-size: 20px;
+}
+
+.allBlogsDiv{
+  background-color: #fff;
+}
+
+.allBlogsTrendingHeader{
+  font-family: 'Nova Flat';font-size: 75px;;
+  text-shadow: 5px 5px rgba(101, 100, 82, 0.349);
+}
+
+.allBlogsGetTheBlahHeader{
+  font-family: 'Nova Flat';font-size: 55px;;
+  text-shadow: 5px 5px rgba(101, 100, 82, 0.349);
+}
+
+.allBlogsImageParentDiv{
+  display: table-cell;
+  width: 50px;
+  height: 100px;
+}
+
+.allBlogsImageChildDiv {
   cursor: pointer;
   height: 285px;
   position: relative;
@@ -61,6 +196,75 @@
   text-align: center;
 }
 
+.allBlogsImageChildDiv .fadedbox {
+  background-color: rgb(7, 142, 180);
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: #fff;
+  -webkit-transition: all 300ms ease-out;
+  -moz-transition: all 300ms ease-out;
+  -o-transition: all 300ms ease-out;
+  -ms-transition: all 300ms ease-out;
+  transition: all 300ms ease-out;
+  opacity: 0;
+  width: 325px;
+  height: 285px;
+  padding: 0px 0px;
+}
+.allBlogsImageChildDiv:hover .fadedbox {
+  opacity: 0.8;
+}
+.allBlogsImageChildDiv .text {
+  -webkit-transition: all 300ms ease-out;
+  -moz-transition: all 300ms ease-out;
+  -o-transition: all 300ms ease-out;
+  -ms-transition: all 300ms ease-out;
+  transition: all 300ms ease-out;
+  transform: translateY(30px);
+  -webkit-transform: translateY(30px);
+}
+.allBlogsImageChildDiv .title {
+  font-size: 2.5em;
+  font-family: 'Nova Flat';font-size: 40px;;
+  text-shadow: 5px 5px rgba(101, 100, 82, 0.349);
+  text-transform: uppercase;
+  opacity: 0;
+  transition-delay: 0.2s;
+  transition-duration: 0.3s;
+}
+.allBlogsImageChildDiv:hover .title,
+.allBlogsImageChildDiv .title {
+  opacity: 1;
+  transform: translateY(0px);
+  -webkit-transform: translateY(0px);
+}
+
+.userProfileParentDiv{
+  background-color: white;
+  width: 1000px;
+  margin: auto;
+  font-family: 'Nova Flat';font-size: 20px;;
+  text-shadow: 5px 5px rgba(101, 100, 82, 0.349);
+}
+
+.userProfileAvatar{
+  border-radius: 50%;
+}
+
+.userProfileBlogsChildDiv{
+  display: inline-grid;
+  grid-template-columns: 1fr 1fr;
+ }
+
+ .userProfileBlogImageDiv {
+  cursor: pointer;
+  height: 285px;
+  position: relative;
+  overflow: hidden;
+  width: 325px;
+  text-align: center;
+}
 
 .userProfileBlogImageDiv .userProfileBlogImageFadedbox {
   background-color: rgb(255, 0, 204);
@@ -104,12 +308,41 @@
   -webkit-transform: translateY(0px);
 }
 
+.settingsParentDiv{
+  background-color: white;
+  width: 800px;
+  margin: auto;
+}
+.settingLinkButtons{
+  background-color: white;
+  font-family: 'Nova Flat';font-size: 50px;;
+  text-shadow: 5px 5px rgba(101, 100, 82, 0.349);
+  height: 200px;
+  width: 400px;
+}
 
+.updateFormDivs{
+  width: 800px;
+  background-color: white;
+  margin: auto;
+  font-family: 'Nova Flat';font-size: 40px;;
+  text-shadow: 5px 5px rgba(101, 100, 82, 0.349);
+}
 
+.updateFormInputs{
+  width: 400px;
+  font-family: 'Nova Flat';font-size: 50px;;
+}
 
+.updateFormInputButtons{
+  background-color: white;
+   font-family: 'Nova Flat';font-size: 25px;
+   width: 84.5%;
+}
 
-.allBlogsDiv{
-  background-color: #fff;
+.updatePasswordFormInputs{
+  width: 85.5%;
+  font-family: 'Nova Flat';font-size: 50px;;
 }
 
 .currentBlogDiv{
@@ -118,39 +351,45 @@
   margin: auto;
 }
 
-.addCommentParent {
-  width: 1px;
-  height: 50px;
-  /* Aligns the children items in a row direction */
-  display: flex;
-  margin-right: 34px;
+.currentBlogHeaderFont{
+  font-family: 'Nova Flat';font-size: 40px;;
+  text-shadow: 5px 5px rgba(101, 100, 82, 0.349);
 }
 
-.addCommentChild1{
-  width: 130px;
-  height: 100px;
+.addCommentParent{
+  display: flex;
+  width: 1000px;
+
+}
+
+.addCommentChild{
+  display: inline-block;
+  width: 10px;
+  height: 10px;
   background-color: rgb(255, 255, 255)
 }
 
-.addCommentChild2{
-  width: 50px;
-  height: 10px;
-  background-color: rgb(255, 255, 255);
-  border: 0px;
-}
-
-.addCommentParent2{
-  width: 250px;
-  height: 100px;
-  display: flex;
-}
-
-.addCommentChild3{
+.addCommentButton{
   background-color: white;
   border: 0px;
 }
 
-.commentFormInput{
+.addCommentFormParentDiv{
+  display: table-row;
+}
+
+.addCommentFormChild{
+  width: 0%;
+  display: table-cell;
+ }
+
+ .addCommentCancelButton{
+  background-color: white;
+  border: 0px;
+ }
+
+
+.addCommentFormInput{
   height: 40px;
   font-family: 'Nova Flat';font-size: 25px;;
   font-weight: bolder;
@@ -160,8 +399,8 @@
   background-color: white;
 }
 
-.commentFormInputButton{
-  height: 40px;
+.sendCommentFormInputButton{
+  height: 0px;
   font-family: 'Nova Flat';font-size: 25px;;
   font-weight: bolder;
   border: none;
@@ -169,8 +408,12 @@
   background-color: white;
 }
 
-.commentFormInputButtonTwo{
-  height: 40px;
+.sendCommentFormError{
+  font-family: 'Nova Flat';font-size: 20px;;
+}
+
+.sendCommentFormInputButtonTwo{
+  height: 0px;
   font-family: 'Nova Flat';font-size: 25px;;
   font-weight: bolder;
   border: none;
@@ -180,7 +423,7 @@
 }
 
 .updateCommentFormInputButton{
-  height: 45.5px;
+  height: 0px;
   font-family: 'Nova Flat';font-size: 25px;;
   font-weight: bolder;
   border: none;
@@ -188,108 +431,30 @@
   background-color: white;
 }
 
-.userButtonCommentTools{
+.updateCommentFormInputButtonTwo{
+  height: 0px;
+  font-family: 'Nova Flat';font-size: 25px;;
+  font-weight: bolder;
+  border: none;
+  outline: none;
+  background-color: white;
+  color: rgb(255, 0, 187);
+}
+
+.commentButtonTools{
   background-color: white;
   color: rgb(255, 0, 187);
   border: 0px;
 }
 
 
-.navParent{
-  background-color: rgba(255, 45, 122, 0.627);
-  color: #fff;
-  width: 1425px;
-  font-family: 'Nova Flat';font-size: 25px;;
-  text-shadow: 5px 5px rgb(0, 0, 0);
-}
-
-
-.inline-block-child {
-  display: inline-block;
-}
-
-
-.appTrendingFonts{
-  font-family: 'Nova Flat';font-size: 75px;;
-  text-shadow: 5px 5px rgba(101, 100, 82, 0.349);
-}
-
-.appGossipFont{
-  font-family: 'Nova Flat';font-size: 55px;;
-  text-shadow: 5px 5px rgba(101, 100, 82, 0.349);
-}
-
-.appCommentHeaderFont{
-  font-family: 'Nova Flat';font-size: 20px;
-}
-
-
-.blogImageParentDiv{
-  display: table-cell;
-  width: 50px;
-  height: 100px;
-}
-
-
-.blogImage {
-  cursor: pointer;
-  height: 285px;
-  position: relative;
-  overflow: hidden;
-  width: 325px;
-  text-align: center;
-}
-
-
-.blogImage .fadedbox {
-  background-color: rgb(7, 142, 180);
-  position: absolute;
-  top: 0;
-  left: 0;
-  color: #fff;
-  -webkit-transition: all 300ms ease-out;
-  -moz-transition: all 300ms ease-out;
-  -o-transition: all 300ms ease-out;
-  -ms-transition: all 300ms ease-out;
-  transition: all 300ms ease-out;
-  opacity: 0;
-  width: 325px;
-  height: 285px;
-  padding: 0px 0px;
-}
-.blogImage:hover .fadedbox {
-  opacity: 0.8;
-}
-.blogImage .text {
-  -webkit-transition: all 300ms ease-out;
-  -moz-transition: all 300ms ease-out;
-  -o-transition: all 300ms ease-out;
-  -ms-transition: all 300ms ease-out;
-  transition: all 300ms ease-out;
-  transform: translateY(30px);
-  -webkit-transform: translateY(30px);
-}
-.blogImage .title {
-  font-size: 2.5em;
-  text-transform: uppercase;
-  opacity: 0;
-  transition-delay: 0.2s;
-  transition-duration: 0.3s;
-}
-.blogImage:hover .title,
-.blogImage:focus .title {
-  opacity: 1;
-  transform: translateY(0px);
-  -webkit-transform: translateY(0px);
-}
 
 
 
 
 
-.blogImgPage{
-    box-shadow: 0 6px 5px rgb(230, 9, 138);
-}
+
+
 
 .userComment{
   background-color: #fff;
@@ -311,54 +476,5 @@
 
 
 
-.currentBlogImage {
-  cursor: pointer;
-  height: 850px;
-  position: relative;
-  overflow: hidden;
-  width: 900px;
-  text-align: center;
-}
 
 
-.currentBlogImage .currentBlogFadedbox {
-  background-color: rgb(228, 127, 11);
-  position: absolute;
-  top: 0;
-  left: 0;
-  color: #fff;
-  -webkit-transition: all 300ms ease-out;
-  -moz-transition: all 300ms ease-out;
-  -o-transition: all 300ms ease-out;
-  -ms-transition: all 300ms ease-out;
-  transition: all 300ms ease-out;
-  opacity: 0;
-  width: 900px;
-  height: 850px;
-  padding: 0px 0px;
-}
-.currentBlogImage:hover .currentBlogFadedbox {
-  opacity: 0.8;
-}
-.currentBlogImage .text {
-  -webkit-transition: all 300ms ease-out;
-  -moz-transition: all 300ms ease-out;
-  -o-transition: all 300ms ease-out;
-  -ms-transition: all 300ms ease-out;
-  transition: all 300ms ease-out;
-  transform: translateY(30px);
-  -webkit-transform: translateY(30px);
-}
-.currentBlogImage .title {
-  font-size: 10.5em;
-  text-transform: uppercase;
-  opacity: 0;
-  transition-delay: 0.2s;
-  transition-duration: 0.3s;
-}
-.currentBlogImage:hover .title,
-.currentBlogImage .title {
-  opacity: 1;
-  transform: translateY(0px);
-  -webkit-transform: translateY(0px);
-}

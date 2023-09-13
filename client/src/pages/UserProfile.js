@@ -1,17 +1,16 @@
-import React, { useState, useContext } from 'react'
+import React, { useContext } from 'react'
 import { UserContext } from '../context/user'
 import UserBlogs from '../components/UserBlogs'
-import UpdateProfile from '../components/UpdateProfile';
 
 export default function UserProfile() {
-    const { user, isAuthenticated} = useContext(UserContext);
-    const [showProfileUpdate, setShowProfileUpdate] = useState(true)
+    const { user, isAuthenticated, userError} = useContext( UserContext );
 
 
-    const ProfileBlogs = () => {
+    const profileBlogs = () => {
       if(isAuthenticated){
+        const uniqueObjects = [...new Map(user.blogs.map(blog => [blog.id, blog])).values()]
 
-        return user.blogs.map((blog) => (
+        return uniqueObjects.map((blog) => (
           <UserBlogs
           key={blog.id}
           blog={blog}
@@ -26,27 +25,22 @@ export default function UserProfile() {
       return (
         <div className='userProfileParentDiv'>
           <br/>
-          { showProfileUpdate ?
-          <div className='userProfileParentDiv'>
-            <img className='userProfileAvatar' onClick={() => setShowProfileUpdate((show) => !show)} src={user.avatar} alt="avatar" height="350" width="350"/>
-            <h1>{user.username}</h1>
-            <h1 className='appGossipFont'>BLOGS YOU'VE LEFT YOUR BLAHS ON...</h1>
-          </div>
-          :
-          <div className='userProfileParentDiv'>
-            <UpdateProfile/>
-          </div>
-          }
+          <h1>{user.username}</h1>
+          <img className='userProfileAvatar' src={user.avatar} alt="avatar" height="350" width="350"/>
+          <h1 className='appGossipFont'>ARTICLES YOU'VE LEFT YOUR BLAHS ON...</h1>
           <br/>
 
           <div className='userProfileBlogsChildDiv'>
-            {ProfileBlogs().reverse()}
+            {profileBlogs().reverse()}
+            <br/>
           </div>
         </div>
         )
     } else {
       return (
-        null
+        <div className='userErrorDiv'>
+          <h3 className='userErrorFont'>{ userError }</h3>
+        </div>
       )
     };
 };

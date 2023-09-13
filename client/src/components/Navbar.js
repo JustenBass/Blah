@@ -1,10 +1,10 @@
-import React, { useContext } from 'react'
-import { UserContext } from '../context/user'
-import { NavLink, useNavigate, Link } from 'react-router-dom'
+import React, { useContext } from 'react';
+import { UserContext } from '../context/user';
+import { NavLink, useNavigate } from 'react-router-dom';
 
 export default function Navbar() {
-  const {user, logout, isAuthenticated} = useContext(UserContext)
-  const navigate = useNavigate()
+  const { user, logout, isAuthenticated } = useContext( UserContext );
+  const navigate = useNavigate();
 
   const logoutUser = () => {
     fetch('/logout', {
@@ -12,38 +12,46 @@ export default function Navbar() {
       headers: {'Content-Type' : 'application/json'}
     })
     .then(() => {
-      logout()
-      navigate('/')
-    })
-  }
+      logout();
+      navigate('/');
+    });
+  };
 
-  if(isAuthenticated){
+  if( isAuthenticated ){
     return (
-      <div className='navParent'>
-        <div className='nav inline-block-child'>
-        <Link to={'/me'}>
-          <img className='userProfileAvatar' src={user.avatar} alt="avatar" height="100" width="100"/>
-        </Link>
-        </div>
+      <div className='navbarFlexParent'>
+        <br/>
+        <img className='userProfileAvatar' src={ user.avatar } alt="avatar" height="100" width="100"/>
+        <h1>Hi, { user.username }! </h1>
 
-        <div className='nav inline-block-child'>
-          <h1>Hi, {user.username}! </h1>
-        </div>
+        <NavLink to='/'>
+          <button  className='navbarLinkButtons'> HOME </button>
+        </NavLink>
 
-      <button className='navLogout' onClick={logoutUser}>Logout</button>
-    </div>
+        <NavLink to='/profile'>
+          <button  className='navbarLinkButtons'> PROFILE </button>
+        </NavLink>
+
+        <NavLink to='/settings'>
+          <button  className='navbarLinkButtons'> SETTINGS </button>
+        </NavLink>
+
+        <NavLink to='/'>
+          <button  className='navbarLinkButtons' onClick={ logoutUser }> LOGOUT </button>
+        </NavLink>
+      </div>
     )
   } else {
     return (
       <div>
         <NavLink to='/login'>
-          <button>Login</button>
+          <button className='loginSignupNavButtons'> Login </button>
         </NavLink>
-        <NavLink to='/signup'>
-          <button>Signup</button>
-        </NavLink>
-      </div>
-    )
-  }
 
-  }
+        <NavLink to='/signup'>
+          <button className='loginSignupNavButtons'> Signup </button>
+        </NavLink>
+        </div>
+    );
+  };
+};

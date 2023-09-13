@@ -9,7 +9,7 @@ class ApplicationController < ActionController::API
 
   def authorize
     @current_user = User.find_by(id: session[:user_id])
-    render json: { error: ["Not authorized"] }, status: :unauthorized unless @current_user
+    render json: { error: ["You are not authorized to view this page. Please login or signup."] }, status: :unauthorized unless @current_user
 end
 
 def raise_invalid_exception(invalid)

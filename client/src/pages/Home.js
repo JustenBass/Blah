@@ -2,8 +2,9 @@ import React, { useContext } from 'react'
 import { UserContext } from '../context/user'
 import Blogs from '../components/Blogs'
 
+
 export default function Home() {
-    const { isAuthenticated, blogs} = useContext(UserContext)
+    const { isAuthenticated, blogs } = useContext(UserContext)
 
     const trendingBlogs = blogs.filter((blog) => blog.trending ? true  : null)
     const nonTrendingBlogs = blogs.filter((blog) => !blog.trending ?  true : null)
@@ -11,14 +12,12 @@ export default function Home() {
     if (isAuthenticated) {
         return (
             <div className='allBlogsDiv'>
-
                 <center>
-                <h1 className='appTrendingFonts'>TRENDING...</h1>
+                    <h1 className='allBlogsTrendingHeader'>TRENDING...</h1>
                 </center>
-                <br/>
 
                 <center>
-                {trendingBlogs.map((blog) => (
+                    {trendingBlogs.map((blog) => (
                         <Blogs
                         key={blog.id}
                         blog={blog}
@@ -29,7 +28,7 @@ export default function Home() {
                 <hr/>
 
                 <center>
-                <h1 className='appGossipFont'>GET THE BLAH 💋</h1>
+                    <h1 className='allBlogsGetTheBlahHeader'>GET THE BLAH 💋</h1>
                 </center>
                 <br/>
 
@@ -44,6 +43,22 @@ export default function Home() {
             </div>
           )
         } else {
-         return(<h1>PLEASE LOGIN OR SIGN UP</h1>)
+            return (
+            <div className='homeLoginSignupBlogsDivParent'>
+                <h1 className='homeLoginSignupBlogsHeader'>WELCOME TO BLAH 💋</h1>
+
+                <center>
+                    <div className='homeLoginSignupBlogsDivChild'>
+                        {nonTrendingBlogs.map((blog) => (
+                            <Blogs
+                            key={blog.id}
+                            blog={blog}
+                            />
+                        ))}
+                    </div>
+                </center>
+                <br/>
+            </div>
+        )
     }
 }

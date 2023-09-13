@@ -3,10 +3,10 @@ import { UserContext } from '../context/user'
 import { useNavigate } from 'react-router-dom'
 
 export default function Login() {
-  const [username, setUsername] = useState('')
-  const [password, setPassword] = useState('')
-  const [error, setError] = useState('')
-  const {login} = useContext(UserContext)
+  const [ username, setUsername ] = useState( '' )
+  const [ password, setPassword ] = useState( '' )
+  const [ error, setError ] = useState( '' )
+  const { login } = useContext( UserContext )
   const navigate = useNavigate()
 
 
@@ -28,8 +28,8 @@ export default function Login() {
       } else {
         setUsername('')
         setPassword('')
-        const errorList = user.error.map((error) => <li>{error}</li>)
-        setError(errorList)
+        const errorList = user.error.map((error) => <>{ error }</>)
+        setError( errorList )
       }
 
     });
@@ -37,28 +37,40 @@ export default function Login() {
 
 
   return (
-      <>
-         <form onSubmit={handleSubmit}>
+      <div className='loginFormParentDiv'>
+        <h1 className='homeLoginSignupBlogsHeader'> BLAH 💋 </h1>
+         <form onSubmit={ handleSubmit }>
+          <div>
             <input
+            className='loginFormInput'
             type="text"
             id="username"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-            />
+            placeholder='username...'
+            value={ username }
+            onChange={ (e) => setUsername(e.target.value) }
+            autoFocus/>
+          </div>
 
             <input
-            type="password"
-            id="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
+              className='loginFormInput'
+              type="password"
+              id="password"
+              placeholder='password...'
+              value={ password }
+              onChange={ (e) => setPassword(e.target.value) }
             />
 
-            <input type="submit"/>
+          <div>
+            <br/>
+            <input
+              className='loginFormInput'
+              type="submit"
+            />
+          </div>
           </form>
-          <ul>
-            <h3>{error}</h3>
-          </ul>
-      </>
-  )
-}
+
+          <h3 className='loginErrors'>{ error }</h3>
+      </div>
+    );
+};
 
