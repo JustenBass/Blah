@@ -9,5 +9,6 @@ Rails.application.routes.draw do
   get '/profile', to: 'users#show'
 
 
+
   get "*path", to: "fallback#index", constraints: ->(req) { !req.xhr? && req.format.html? }
 end

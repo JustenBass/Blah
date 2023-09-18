@@ -38,5 +38,5 @@ const { isAuthenticated, userError } = useContext(UserContext)
         <h3 className='userErrorFont'>{ userError }</h3>
       </div>
     )
-  }
+  };
 };

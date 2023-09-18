@@ -2,8 +2,8 @@ import React, { useState, useContext } from 'react';
 import { UserContext } from '../context/user';
 
 export default function UpdateCommentForm({ comment, currentBlog, setUpdateFlag }) {
-    const { blogs, setBlogs, deleteBlogComment, updateCommentAlert, setUpdateCommentAlert } = useContext( UserContext );
-    const [ userUpdatedComment, setUserUpdatedComment ] = useState( comment.comment) ;
+    const { blogs, setBlogs, deleteBlogComment, updateCommentPinkAlert, setUpdateCommentPinkAlert } = useContext( UserContext );
+    const [ userUpdatedComment, setUserUpdatedComment ] = useState( comment.comment );
     const [ errors, setErrors ] = useState( '' );
 
     function updateUserComment(e){
@@ -59,15 +59,15 @@ export default function UpdateCommentForm({ comment, currentBlog, setUpdateFlag 
                 onChange={(e) => {
                     if( e.target.value ){
                       setUserUpdatedComment( e.target.value );
-                      setUpdateCommentAlert( false );
+                      setUpdateCommentPinkAlert( false );
                     } else {
                           setUserUpdatedComment( e.target.value );
-                          setUpdateCommentAlert( true );
+                          setUpdateCommentPinkAlert( true );
                         };
                       }}
                 autoFocus/>
 
-                { updateCommentAlert ?
+                { updateCommentPinkAlert ?
                     <>
                         <button className='updateCommentFormInputButton' type='submit'> UPDATE </button>
                         <h3 className='sendCommentFormError'> {errors} </h3>

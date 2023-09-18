@@ -11,6 +11,7 @@ import Settings from './pages/Settings';
 import UpdateUsernameForm from './pages/UpdateUsernameForm';
 import UpdatePasswordForm from './pages/UpdatePasswordForm'
 import DeactivateUser from './pages/DeactivateUser';
+import UserError from './pages/UserError';
 import './App.css';
 
 
@@ -31,6 +32,7 @@ return (
               <Route path="/updatePasswordForm" element={<UpdatePasswordForm />}/>
               <Route path="/deactivateAccount" element={<DeactivateUser />}/>
               <Route path="/blogs/:id" element={<CurrentBlog />}/>
+              <Route path="/userError" element={<UserError />}/>
             </Routes>
             </Router>
         </UserProvider>

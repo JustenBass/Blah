@@ -51,7 +51,7 @@
   gap: 20px;
   background-color: rgba(255, 45, 122, 0.627);
   color: #fff;
-  width: 1425px;
+  width: auto;
   font-family: 'Nova Flat';font-size: 25px;;
   text-shadow: 5px 5px rgb(0, 0, 0);
 }
@@ -114,6 +114,7 @@
 
 .homeLoginSignupBlogsDivParent{
   background-color: white;
+  margin-top: 13.5%;
 }
 
 .homeLoginSignupBlogsHeader{
@@ -169,6 +170,8 @@
 
 .allBlogsDiv{
   background-color: #fff;
+  width: 100%;
+  position: absolute;
 }
 
 .allBlogsTrendingHeader{
@@ -242,7 +245,8 @@
 
 .userProfileParentDiv{
   background-color: white;
-  width: 1000px;
+  width: 1075.5px;
+  /* height: 100000vh; */
   margin: auto;
   font-family: 'Nova Flat';font-size: 20px;;
   text-shadow: 5px 5px rgba(101, 100, 82, 0.349);
@@ -310,19 +314,22 @@
 
 .settingsParentDiv{
   background-color: white;
-  width: 800px;
+  width: 1075.5px;
+  height: 100vh;
   margin: auto;
-}
-.settingLinkButtons{
+  }
+
+  .settingLinkButtons{
   background-color: white;
   font-family: 'Nova Flat';font-size: 50px;;
   text-shadow: 5px 5px rgba(101, 100, 82, 0.349);
   height: 200px;
-  width: 400px;
+  width: 450px;
 }
 
 .updateFormDivs{
-  width: 800px;
+  width: 1075.5px;
+  height: 100vh;
   background-color: white;
   margin: auto;
   font-family: 'Nova Flat';font-size: 40px;;
@@ -332,22 +339,39 @@
 .updateFormInputs{
   width: 400px;
   font-family: 'Nova Flat';font-size: 50px;;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 20px rgb(255, 0, 157);
+  box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 20px rgb(255, 0, 157);
+  border: 0px;
 }
 
 .updateFormInputButtons{
   background-color: white;
    font-family: 'Nova Flat';font-size: 25px;
    width: 84.5%;
+   -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 20px rgb(255, 0, 157);
+   box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 20px rgb(255, 0, 157);
+   border: 0px;
 }
 
 .updatePasswordFormInputs{
   width: 85.5%;
   font-family: 'Nova Flat';font-size: 50px;;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 20px rgb(255, 0, 157);
+  box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 20px rgb(255, 0, 157);
+  border: 0px;
+}
+
+.deactivateButton{
+  background-color: white;
+   font-family: 'Nova Flat';font-size: 25px;
+   width: 84.5%;
+   -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 150px rgb(255, 0, 0);
+   box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 150px rgb(255, 0, 0);
 }
 
 .currentBlogDiv{
   background-color: #fff;
-  width: 1000px;
+  width: 1075.5px;
   margin: auto;
 }
 
@@ -364,7 +388,7 @@
 
 .addCommentChild{
   display: inline-block;
-  width: 10px;
+  width: 20px;
   height: 10px;
   background-color: rgb(255, 255, 255)
 }
@@ -446,15 +470,6 @@
   color: rgb(255, 0, 187);
   border: 0px;
 }
-
-
-
-
-
-
-
-
-
 
 .userComment{
   background-color: #fff;

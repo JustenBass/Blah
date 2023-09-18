@@ -1,351 +1,49 @@
-# Project Template: React/Rails API
+💋 INTRODUCTION-
 
-## Description
+Hello, my fellow coders and viewers. The time has come after months of studies and practice to present to you my fourth web application 'BLAH'. I'm excited to showcase the new skills and knowledge that I have adapted from Ruby on Rails to create and Object Oriented Programming application with three models and one of the models representing a joins table. Learning Ruby on Rails had it's challenges with combining more than a few elements I did not have to implement with past projects. I got to work with the magic of serializers, validations, exceptions and many more elements that work with the front end in order to have a solid application that involved a joins table. After a few weeks of dedication to this project, I'm happy to announce I'm walking away from phase 4 confident that I've gained a tremendous amount of knowledge to build even more complexed future projects.
 
-This project is scaffolded so that you can build a React frontend and Rails
-backend together, and easily deploy them to Render.
 
-**Note**: if you are not planning to deploy your app to Render and prefer to use
-SQLite, you will need to make the following changes in the project files:
+💋 What is the inspiration behind BLAH?
 
-1. In the `Gemfile`, replace `gem 'pg', '~> 1.1'` with `gem 'sqlite3', '~>
-   1.4'`.
-2. In the `database.yml` file, change the line `adapter: postgresql` to
-   `adapter: sqlite3`.
+When I thought about working with a joins table the first thing that came to mind was Instagram. As a user, I know on Instagram I can see post from others users and leave any comments I desire on these post (depending if I'm authorized or I meet validation credentials). In todays society a lot of us are obsessed with the world of celebrities and thier daily lives. When I thought of Instagram, I thought about one of my favortie accounts I follow, E News. An account all about celebrities and their daily lives. Users are able to leave comments on E News posts made about celebrities. This means a user has many comments and posts through comments, a post has many comments and many users through comments, and a comment belongs to a user and a post. With this algorithim in place I wanted to challenge myself and see if I could replicate what a user sees and can do on Instagram. Voila! BLAH was born.
 
-## Requirements
 
-- Ruby 2.7.4
-- NodeJS (v16), and npm
-- Render account
-- Postgresql
+💋 The ideas behind the application.
 
-See Environment Setup below for instructions on installing these tools if you
-don't already have them.
+ I wanted to create an application that was clean and simple. When you visit our web application our goal is to make sure the user doesn't question what to do and how to do it. I know as a user of many platforms myself, if the application is'nt easy for me to navigate through, there's a high chance I won't return. Visually I believe it is important to make your application pop. I wanted to add some popular effects on this application to keep it fresh and fun. From adding hovered titles over images and hovered shadow navigation throughout the client side routing navigation bar. Little details go along way to keep users interested. I believe it's not only the content given that keeps interest but also the design given to the user throughout the application.
 
-## Setup
+💋 Check out this video on how our application works!
+https://youtu.be/ByX2rmfE2ws
 
-Start by **cloning** (not forking) the project template repository and removing
-the remote:
+💋 Check out MY GitHub and the commits for the application 'BLAH':
+https://github.com/JustenBass/blah_no_really_its_called_blah
 
-```console
-$ git clone git@github.com:learn-co-curriculum/project-template-react-rails-api.git your-project-name
-$ cd your-project-name
-$ git remote rm origin
-```
+💋 Check out my blog on Validations:
+https://dev.to/justenbass/lets-talk-validations-5gfe
 
-Then, [create a new remote repository][create repo] on GitHub. Head to
-[github.com](https://github.com) and click the **+** icon in the top-right
-corner and follow the steps to create a new repository. **Important**: don't
-check any of the options such as 'Add a README file', 'Add a .gitignore file',
-etc. — since you're importing an existing repository, creating any of those
-files on GitHub will cause issues.
+💋 Resources:
+Article Images:
 
-[create repo]: https://docs.github.com/en/github/importing-your-projects-to-github/importing-source-code-to-github/adding-an-existing-project-to-github-using-the-command-line#adding-a-project-to-github-without-github-cli
+1. Zoe Kravitz - https://www.eatthis.com/news-zoe-kravitz-eating-mental-health-struggles/
 
-If you're working with a partner,
-[add them as a collaborator][add collaborator] on GitHub. From your repo on
-GitHub, go to Settings > Manage Access > Invite a collaborator and enter your
-partner's username. Once your partner has access, they should git **clone** (not
-fork) the repository.
+2. Lizzo - https://www.vogue.com/article/lizzo-mental-health-body-positivity-instagram
 
-[add collaborator]: https://docs.github.com/en/account-and-profile/setting-up-and-managing-your-github-user-account/managing-access-to-your-personal-repositories/inviting-collaborators-to-a-personal-repository
+3. Barbie - https://www.parents.com/is-the-barbie-movie-appropriate-for-young-kids-7563216
 
-Finally, connect the GitHub remote repository to your local repository and push
-up your code:
+4. Beyonce - https://www.cnn.com/2023/07/19/entertainment/beyonce-wedding-song/index.html
 
-```console
-$ git remote add origin git@github.com:your-username/your-project-name.git
-$ git push -u origin main
-```
+5. Rihanna - https://www.independent.co.uk/celebrity-news/rihanna-asap-rocky-trust-claire-williams-british-vogue-b2283618.html
 
-When you're ready to start building your project, run:
+6. Miley Cyrus - https://www.billboard.com/music/pop/miley-cyrus-new-song-used-to-be-young-release-date-1235394518/
 
-```sh
-bundle install
-rails db:create
-npm install --prefix client
-```
+7. Kardashians - https://www.usmagazine.com/entertainment/pictures/the-kardashians-season-1-everything-to-know-about-the-2nd-installment/
 
-You can use the following commands to run the application:
+User Avatars:
 
-- `rails s`: run the backend on [http://localhost:3000](http://localhost:3000)
-- `npm start --prefix client`: run the frontend on
-  [http://localhost:4000](http://localhost:4000)
+1. User1 Avatar - https://www.cheatsheet.com/entertainment/megan-thee-stallion-wanted-become-rapper-because-mom.html/
 
-Make sure to also update this README to include documentation about
-your project. Here's a list of some [awesome readmes][] for inspiration.
+2. User2 Avatar - https://www.amazon.com/SpongeBob-SquarePants-SBSP-SB-stand-Standee/dp/B08GG7PP7T
 
-[awesome readmes]: https://github.com/matiassingers/awesome-readme
+3. User3 Avatar - https://www.byrdie.com/paris-hilton-outfits-7097475
 
-## Deploying
-
-This application has all the starter code needed to help you deploy your
-application to Render. It's recommended to deploy your project early and push up
-changes often to ensure that your code works equally well in production and
-development environments.
-
-The instructions in this section assume that you've already set up a Render
-account, created a PostgreSQL instance in your account, and set up your
-environment to deploy to Render. If you have not yet completed these steps, see
-the Environment Setup section below.
-
-### Create a Master Key File
-
-In the project files, delete the `config/credentials.yml.enc` file. Then, in the
-terminal, run the following:
-
-```sh
-$ EDITOR="code --wait" bin/rails credentials:edit
-```
-
-**Note**: if you use a different text editor than VS Code, you will need to replace
-`code` with the appropriate command.
-
-The command above will open a file in VS Code and wait for you to close it
-before completing the process of creating the credential files. Once you've done
-that, you should see both the `credentials.yml.enc` and `master.key` files in
-the `config` folder. You will need the value in the `master.key` file to set up
-the web service in Render.
-
-Commit your changes and push them to GitHub.
-
-### Create the App Database
-
-Render allows users to create [multiple databases within a single PostgreSQL
-instance][multiple dbs] using the PostgreSQL interactive terminal,
-[`psql`][psql].
-
-Navigate to your PostgreSQL instance from the Render dashboard, click the
-"Connect" dropdown, then the External Connection tab, and copy the PSQL command.
-Paste it into your terminal and press enter. This command connects you to the
-remote PostgreSQL instance.
-
-To create the database, run this SQL command:
-
-```sql
-CREATE DATABASE new_db_name;
-```
-
-Now if you run `\l` from the PSQL prompt, you should see a table that includes
-your main PostgreSQL instance as well as the database you just created.
-
-Run the `\q` command to exit PSQL.
-
-[multiple dbs]: https://render.com/docs/databases#multiple-databases-in-a-single-postgresql-instance
-[psql]: https://www.postgresql.org/docs/current/app-psql.html
-
-### Create the Render Web Service
-
-To deploy, click the "New +" button in Render and select "Web Service". You'll
-see a list of all the repositories in your GitHub account. Find the repo you
-want to deploy and click the "Select" button.
-
-In the page that opens, enter a name for your app and make sure the Environment
-is set to Ruby.
-
-Scroll down and set the Build Command to `./bin/render-build.sh` and the Start
-Command to `bundle exec puma -C config/puma.rb`.
-
-Open a separate tab in your browser, navigate to the Render dashboard, and click
-on your PostgreSQL instance. Scroll down to the "Connection" section, find the
-"Internal Database URL", and copy it.
-
-Return to the other tab. Scroll down and click the "Advanced" button, then click
-"Add Environment Variable." Enter `DATABASE_URL` as the key, then paste in the
-URL you just copied. Note that the URL will end with the name you gave your
-PostgreSQL instance when you initially created it; be sure to remove that name
-and replace it with the name of the database you created in the last section.
-
-Click "Add Environment Variable" again. Add `RAILS_MASTER_KEY` as the key, and
-paste the value in the `config/master.key` file you created earlier.
-
-The completed page should look like this:
-
-![Web service settings](https://curriculum-content.s3.amazonaws.com/phase-4/project-template/web-service-settings.png)
-
-Scroll down to the bottom of the page and click "Create Web Service". The deploy
-process will begin automatically.
-
-## Environment Setup
-
-### Install the Latest Ruby Version
-
-Verify which version of Ruby you're running by entering this in the terminal:
-
-```console
-$ ruby -v
-```
-
-We recommend version 2.7.4. If you need to upgrade you can install it using rvm:
-
-```console
-$ rvm install 2.7.4 --default
-```
-
-You should also install the latest versions of `bundler` and `rails`:
-
-```console
-$ gem install bundler
-$ gem install rails
-```
-
-### Install NodeJS
-
-Verify you are running a recent version of Node with:
-
-```sh
-node -v
-```
-
-If your Node version is not 16.x.x, install it and set it as the current and
-default version with:
-
-```sh
-nvm install 16
-nvm use 16
-nvm alias default 16
-```
-
-You can also update your npm version with:
-
-```sh
-npm i -g npm
-```
-
-### Install Postgresql
-
-Render requires that you use PostgreSQL for your database instead of SQLite.
-PostgreSQL (or just Postgres for short) is an advanced database management
-system with more features than SQLite. If you don't already have it installed,
-you'll need to set it up.
-
-#### PostgreSQL Installation for WSL
-
-To install Postgres for WSL, run the following commands from your Ubuntu terminal:
-
-```sh
-sudo apt update
-sudo apt install postgresql postgresql-contrib libpq-dev
-```
-
-Then confirm that Postgres was installed successfully:
-
-```sh
-psql --version
-```
-
-Run this command to start the Postgres service:
-
-```sh
-sudo service postgresql start
-```
-
-Finally, you'll also need to create a database user so that you are able to
-connect to the database from Rails. First, check what your operating system
-username is:
-
-```sh
-whoami
-```
-
-If your username is "ian", for example, you'd need to create a Postgres user
-with that same name. To do so, run this command to open the Postgres CLI:
-
-```sh
-sudo -u postgres -i
-```
-
-From the Postgres CLI, run this command (replacing "ian" with your username):
-
-```sh
-createuser -sr ian
-```
-
-Then enter `control + d` or type `logout` to exit.
-
-[This guide][postgresql wsl] has more info on setting up Postgres on WSL if you
-get stuck.
-
-[postgresql wsl]: https://docs.microsoft.com/en-us/windows/wsl/tutorials/wsl-database#install-postgresql
-
-#### Postgresql Installation for OSX
-
-To install Postgres for OSX, you can use Homebrew:
-
-```sh
-brew install postgresql
-```
-
-Once Postgres has been installed, run this command to start the Postgres
-service:
-
-```sh
-brew services start postgresql
-```
-
-### Set Up a Render Account
-
-You can sign up for a free account at
-[https://dashboard.render.com/register][Render signup]. We recommend that you
-sign up using GitHub as that will make it a little easier for you to connect
-Render to your GitHub account. The instructions below assume you've done that.
-
-[Render signup]: https://dashboard.render.com/register
-
-Once you've completed the signup process, you will be taken to the Render
-dashboard. In order to connect Render to your GitHub account, you'll need to
-click the "New Web Service" button in the "Web Services" box. On the next page,
-you will see a GitHub heading on the right side and below that a link labeled
-"Connect account". (If you didn't sign up using GitHub, it will say "Connect
-account" instead.) Click that link, then in the modal that appears click
-"Install." You should then be taken back to the "Create a New Web Service" page,
-which should now show a list of your GitHub repos. We won't actually create a
-web service just yet so you are free to navigate away from the page at this
-point.
-
-Next, we'll set up a PostgreSQL instance. Click the "New +" button at the top of
-the page and select "PostgreSQL". Enter a name for your PostgreSQL instance. The
-remaining fields can be left as is. Click "Create Database" at the bottom of the
-page. You should now be all set to follow the steps in the "Deploying" section.
-
-## Troubleshooting
-
-If you ran into any errors along the way, here are some things you can try to
-troubleshoot:
-
-- If you're on a Mac and got a server connection error when you tried to run
-  `rails db:create`, one option for solving this problem for Mac users is to
-  install the Postgres app. To do this, first uninstall `postgresql` by running
-  `brew remove postgresql`. Next, download the app from the
-  [Postgres downloads page][] and install it. Launch the app and click
-  "Initialize" to create a new server. You should now be able to run
-  `rails db:create`.
-
-- If you're using WSL and got the following error running `rails db:create`:
-
-  ```txt
-  PG::ConnectionBad: FATAL:  role "yourusername" does not exist
-  ```
-
-  The issue is that you did not create a role in Postgres for the default user
-  account. Check [this video](https://www.youtube.com/watch?v=bQC5izDzOgE) for
-  one possible fix.
-
-- If your app failed to deploy at the build stage, make sure your local
-  environment is set up correctly by following the steps at the beginning of
-  this lesson. Check that you have the latest versions of Ruby and Bundler, and
-  ensure that PostgreSQL was installed successfully.
-
-- If you deployed successfully, but you ran into issues when you visited the
-  site, make sure you migrated and seeded the database. Also, make sure that
-  your application works locally and try to debug any issues on your local
-  machine before re-deploying. You can also check the deployment log on the
-  app's page in the Render dashboard.
-
-[postgres downloads page]: https://postgresapp.com/downloads.html
-
-## Resources
-
-- [Getting Started with Ruby on Rails on Render](https://render.com/docs/deploy-rails)
-- [Render Databases Guide](https://render.com/docs/databases)
+4. User4 Avatar - https://www.redbubble.com/i/sticker/pink-smiley-face-by-maeveamcgregor/82830027.EJUG5

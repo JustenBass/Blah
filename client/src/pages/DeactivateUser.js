@@ -6,9 +6,6 @@ function DeactivateUser() {
   const { user, isAuthenticated, setIsAuthenticated, userError } = useContext(UserContext)
   const navigate = useNavigate()
 
-
-
-
   const deactivateUser = (userObject) => {
     fetch(`/users/${userObject}`,{
         method: 'DELETE',
@@ -26,7 +23,7 @@ function DeactivateUser() {
           <br/>
           <h1>CLICK BELOW TO CONFIRM ACCOUNT DEACTIVATION</h1>
           <div>
-            <button className='updateFormInputButtons' onClick={() => deactivateUser(user.id)}> DEACTIVATE </button>
+            <button className='deactivateButton' onClick={() => deactivateUser(user.id)}> DEACTIVATE </button>
           </div>
           <br/>
         </div>

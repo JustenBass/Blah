@@ -6,8 +6,8 @@ import CommentForm from '../components/CommentForm';
 
 export default function CurrentBlog() {
     const { id } = useParams()
-    const { blogs, isAuthenticated, userError } = useContext(UserContext)
-    const [commentFormFlag, setCommentFormFlag] = useState(true)
+    const { blogs, isAuthenticated, commentFormFlag, setCommentFormFlag, userError } = useContext(UserContext)
+
 
     const selectedBlog = blogs.find(blog => blog.id == id)
         if(!selectedBlog){
@@ -50,7 +50,7 @@ export default function CurrentBlog() {
                     <div className='addCommentFormParentDiv'>
 
                       <div className='addCommentFormChild'>
-                        <CommentForm currentBlog={ selectedBlog } setCommentFormFlag={ setCommentFormFlag }/>
+                        <CommentForm currentBlog={ selectedBlog }/>
                       </div>
 
                       <button className='addCommentCancelButton' onClick={() => setCommentFormFlag(true)}><h2>X</h2></button>
@@ -71,7 +71,6 @@ export default function CurrentBlog() {
             <div className='userErrorDiv'>
               <h3 className='userErrorFont'>{ userError }</h3>
             </div>
-         )
-        }
-
-}
+          )
+        };
+};

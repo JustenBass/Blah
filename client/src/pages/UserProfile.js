@@ -5,9 +5,7 @@ import UserBlogs from '../components/UserBlogs'
 export default function UserProfile() {
     const { user, isAuthenticated, userError} = useContext( UserContext );
 
-
     const profileBlogs = () => {
-      if(isAuthenticated){
         const uniqueObjects = [...new Map(user.blogs.map(blog => [blog.id, blog])).values()]
 
         return uniqueObjects.map((blog) => (
@@ -16,9 +14,6 @@ export default function UserProfile() {
           blog={blog}
           />
         ))
-      } else {
-       return null
-      };
     };
 
     if(isAuthenticated){
