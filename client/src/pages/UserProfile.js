@@ -19,7 +19,7 @@ export default function UserProfile() {
       return (
         <div className='userProfileParentDiv'>
           <br/>
-          <h1>{user.username}</h1>
+          <h1>{user.username.toUpperCase()}</h1>
           <img className='userProfileAvatar' src={user.avatar} alt="avatar" height="350" width="350"/>
           <h1 className='appGossipFont'>ARTICLES YOU'VE LEFT YOUR BLAHS ON...</h1>
           <br/>

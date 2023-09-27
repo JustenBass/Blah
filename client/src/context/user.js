@@ -89,6 +89,26 @@ function UserProvider({ children }) {
                 setShowUpdateSuccessAlert( true );
                 updateSuccessAlertTimeout();
                 setUsernameErrors( '' );
+
+                const blogUsers = blogs.map((blog) => blog.users)
+
+                const users = blogUsers.flatMap((user) => user)
+
+                const findUser = users.filter((user) => user.id === updatedUser.id)
+
+               const updateUser = users.map((user) => {
+                if(user.id === updatedUser.id){
+                  const update = {
+                    ...user,
+                    username: updatedUser.username
+                  }
+                  setUser(update)
+                } else {
+                  return user
+                }
+               })
+
+                console.log('uname', updateUser)
             } else {
                 const errorsList = updatedUser.errors.map((error) => <>{ error }</>)
                 setUsernameErrors( errorsList );
