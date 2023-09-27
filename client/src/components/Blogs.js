@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 export default function Blogs({ blog }) {
 
   return (
-    <div className='allBlogsImageParentDiv'>
+    <>
       <Link to={ `/blogs/${blog.id}` }>
         <div className='allBlogsImageChildDiv'>
           <img src={ blog.image } alt="blogImg" width="325" height="285"/>
@@ -15,6 +15,6 @@ export default function Blogs({ blog }) {
           </div>
         </div>
       </Link>
-    </div>
+    </>
   );
 };

@@ -10,6 +10,7 @@ import CurrentBlog from './pages/CurrentBlog';
 import Settings from './pages/Settings';
 import UpdateUsernameForm from './pages/UpdateUsernameForm';
 import UpdatePasswordForm from './pages/UpdatePasswordForm'
+import PostBlog from './pages/PostBlog';
 import DeactivateUser from './pages/DeactivateUser';
 import UserError from './pages/UserError';
 import './App.css';
@@ -28,6 +29,7 @@ return (
               <Route path="/login" element={<Login />}/>
               <Route path="/profile" element={<UserProfile />}/>
               <Route path="/settings" element={<Settings />}/>
+              <Route path="/post_blog" element={<PostBlog />}/>
               <Route path="/updateUsernameForm" element={<UpdateUsernameForm />}/>
               <Route path="/updatePasswordForm" element={<UpdatePasswordForm />}/>
               <Route path="/deactivateAccount" element={<DeactivateUser />}/>

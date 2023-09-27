@@ -5,8 +5,11 @@ class User < ApplicationRecord
 
     validates :username, presence: true, uniqueness: true
     validates :avatar, presence: true
+
+    def self.get_users(name)
+        self.select {|u| u.username.downcase.include?(name)}
+    end
 end
 
 
 
-    

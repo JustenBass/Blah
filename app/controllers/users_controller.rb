@@ -1,14 +1,14 @@
 class UsersController < ApplicationController
     skip_before_action :authorize, only: [ :create ]
 
-    #signup
+
     def create
         user = User.create!(user_params)
             session[:user_id] = user.id
             render json: user
     end
 
-    #stay logged in
+
     def show
        render json: @current_user
     end
@@ -22,6 +22,17 @@ class UsersController < ApplicationController
         user = User.find(params[:id])
         user.destroy
         head :no_content
+    end
+
+    def get_user_by_word_match
+        get_user_by_param_word = User.get_user(params[:word])
+        blogs_attached_to_user = get_user_by_param_word.flat_map {|u| u.blogs}
+
+        if blogs_attached_to_user.length > 0
+        render json: blogs_attached_to_user, status: :ok
+    else
+        render json: {error: ['Sorry no username matches param string meaning there are no blogs to render back to you']}, status: :not_found
+        end
     end
 
     private

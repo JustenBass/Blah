@@ -15,6 +15,7 @@ ActiveRecord::Schema.define(version: 2023_08_22_033646) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+
   create_table "blogs", force: :cascade do |t|
     t.string "image"
     t.string "title"

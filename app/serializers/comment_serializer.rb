@@ -11,7 +11,4 @@ class CommentSerializer < ActiveModel::Serializer
   def user_avatar
     object.user.avatar
 end
-
-
-
 end

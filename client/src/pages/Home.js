@@ -16,14 +16,14 @@ export default function Home() {
                     <h1 className='allBlogsTrendingHeader'>TRENDING...</h1>
                 </center>
 
-                <center>
+                <div className='allBlogsImageParentDiv'>
                     {trendingBlogs.map((blog) => (
                         <Blogs
                         key={blog.id}
                         blog={blog}
                         />
                     ))}
-                </center>
+                </div>
                 <br/>
                 <hr/>
 
@@ -32,14 +32,16 @@ export default function Home() {
                 </center>
                 <br/>
 
-                <center>
+
+                <div className='allBlogsImageParentDiv'>
                     {nonTrendingBlogs.map((blog) => (
                         <Blogs
                         key={blog.id}
                         blog={blog}
                         />
                     ))}
-                </center>
+                </div>
+
             </div>
           )
         } else {

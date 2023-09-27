@@ -10,7 +10,7 @@ export default function CurrentBlog() {
 
 
     const selectedBlog = blogs.find(blog => blog.id == id)
-        if(!selectedBlog){
+        if( !selectedBlog ){
             return <p>Loading...</p>
         }
 

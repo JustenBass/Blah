@@ -12,6 +12,7 @@ function UserProvider({ children }) {
     const [ showUpdateErrorAlert , setShowUpdateErrorAlert ] = useState ( false )
     const [ passwordErrors, setPasswordErrors ] = useState( '' );
     const [ blogs, setBlogs ] = useState( [] )
+    const [ blogErrors, setBlogErrors ] = useState( '' )
     const [ commentFormFlag, setCommentFormFlag ] = useState( true )
     const [ updateFlag, setUpdateFlag ] = useState( true )
     const [ commentErrors, setCommentErrors ] = useState( '' );
@@ -44,12 +45,12 @@ function UserProvider({ children }) {
         fetch('/profile')
         .then((r) => r.json())
         .then((data) => {
-            setUser( data )
             if( data.error ){
                 setIsAuthenticated( false );
                 const errorList = data.error.map((error) => <>{ error }</>)
                 setUserError( errorList );
             } else {
+                setUser( data )
                 setIsAuthenticated( true );
             }
         })
@@ -67,6 +68,13 @@ function UserProvider({ children }) {
           setShowUpdateErrorAlert( false );
       }, 4000);
   };
+
+  const selectedBlog = (id) => {
+    blogs.find(blog => blog.id == id)
+  if(!selectedBlog){
+      return <p>Loading...</p>
+  }
+  }
 
     function updateUsername(username){
         fetch(`/users/${user.id}`, {
@@ -90,7 +98,6 @@ function UserProvider({ children }) {
             };
           });
         };
-
 
 
     function updatePassword(password){
@@ -125,6 +132,22 @@ function UserProvider({ children }) {
         })
     }, []);
 
+    const addBlog = (blog) => {
+      fetch('/blogs',{
+        method: 'POST',
+        headers: {'Content-Type' : 'application/json'},
+        body: JSON.stringify( blog )
+      })
+      .then((r) => r.json())
+      .then((newBlog) => {
+        if( !newBlog.errors){
+          setBlogs([...blogs, newBlog])
+        } else {
+          const errorsList = newBlog.errors.map((error) => <>{ error }</>)
+          setBlogErrors(errorsList)
+        }
+      })
+    }
 
     const addComment = (comment) => {
         fetch('/comments',{
@@ -150,11 +173,11 @@ function UserProvider({ children }) {
             setBlogs( addNewBlogComments );
             setCommentFormFlag( true );
 
-            const findUserBlog = user.blogs.find((blog) => blog.id === newComment.blog_id);
+            const findUserBlog = user.unique_blogs.find((blog) => blog.id === newComment.blog_id);
 
             if( !findUserBlog ){
-              const updateUserBlogs = [ ...user.blogs, newComment.blog ];
-              const updatedUser = { ...user, blogs: updateUserBlogs };
+              const updateUserBlogs = [ ...user.unique_blogs, newComment.blog ];
+              const updatedUser = { ...user, unique_blogs: updateUserBlogs };
               setUser( updatedUser );
              };
 
@@ -191,8 +214,8 @@ function UserProvider({ children }) {
           const findUserComments = nonDeletedBlogComments.find((comment) => comment.user_id === user.id)
 
           if( !findUserComments ){
-                const filterUserBlogs = user.blogs.filter((blog) => blog.id !== selectedComment.blog_id)
-                const updateUser = { ...user, blogs: filterUserBlogs }
+                const filterUserBlogs = user.unique_blogs.filter((blog) => blog.id !== selectedComment.blog_id)
+                const updateUser = { ...user, unique_blogs: filterUserBlogs }
                 setUser( updateUser );
               };
           });
@@ -220,6 +243,8 @@ function UserProvider({ children }) {
             passwordErrors,
             blogs,
             setBlogs,
+            addBlog,
+            blogErrors,
             commentFormFlag,
             updateFlag,
             setUpdateFlag,

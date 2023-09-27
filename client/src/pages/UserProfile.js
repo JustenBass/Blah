@@ -6,9 +6,8 @@ export default function UserProfile() {
     const { user, isAuthenticated, userError} = useContext( UserContext );
 
     const profileBlogs = () => {
-        const uniqueObjects = [...new Map(user.blogs.map(blog => [blog.id, blog])).values()]
 
-        return uniqueObjects.map((blog) => (
+        return user.unique_blogs.map((blog) => (
           <UserBlogs
           key={blog.id}
           blog={blog}

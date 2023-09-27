@@ -32,6 +32,10 @@ export default function Navbar() {
           <button  className='navbarLinkButtons'> PROFILE </button>
         </NavLink>
 
+        <NavLink to='/post_blog'>
+          <button  className='navbarLinkButtons'> POST </button>
+        </NavLink>
+
         <NavLink to='/settings'>
           <button  className='navbarLinkButtons'> SETTINGS </button>
         </NavLink>
